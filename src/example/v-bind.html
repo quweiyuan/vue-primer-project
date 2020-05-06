@@ -16,7 +16,7 @@
     在绑定CSS样式时，绑定的值必须在vue中的data属性中进行声明。
     <ul>
         <li>直接绑定class样式</li>
-        <div :class="classA">绑定classA</div>
+        <div :class="className">绑定classA</div>
         <li>绑定classA并进行判断，在isOK为true时显示样式，在isOk为false时不显示样式</li>
         <div :class="{classA:isOk}">绑定class中的判断</div>
         <li>绑定class中的数组</li>
@@ -36,7 +36,12 @@
         el:'#app',
         data:{
             imgSrc:'../images/vue.jpg',
-            classA:'color:#F00',
+            className:'classA',
+            isOk:true,
+            classA:'classA',
+            classB:'classB',
+            red:'red',
+            font:'18pt',
             styleObject:{
                 fontSize:'24px',
                 color:'green'
@@ -44,5 +49,14 @@
         }
     })
 </script>
+
+<style>
+    .classA{
+        color:red;
+    }
+    .classB{
+        font-size: 25pt;
+    }
+</style>
 </body>
 </html>
