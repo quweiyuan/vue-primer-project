@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="73a8ed7d-7995-4973-a35a-05ed38e93658" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vue-command.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RunCopySave.zpi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/example/helloworld.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/example/v-for.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/example/v-if.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/example/v-show.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/vue.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1ZTjwBk4NO4VqegrFm4SIple64v" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/example" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\git\vue-command\src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\git\vue-command\src\example" />
+      <recent name="E:\git\vue-command\src" />
+      <recent name="E:\git\vue-command\js" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.index.html (1)">
+    <configuration name="index.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/vue-command/src/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/vue-command/html/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="v-if.html (1)" type="JavascriptDebugType" nameIsGenerated="true" uri="http://localhost:63342/vue-command/src/example/v-if.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="v-if.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/vue-command/html/example/v-if.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html (1)" />
+        <item itemvalue="JavaScript Debug.v-if.html" />
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="73a8ed7d-7995-4973-a35a-05ed38e93658" name="Default Changelist" comment="" />
+      <created>1584870213075</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584870213075</updated>
+      <workItem from="1584870215430" duration="312000" />
+      <workItem from="1584871577073" duration="3014000" />
+      <workItem from="1584874720512" duration="249000" />
+      <workItem from="1584876952776" duration="2932000" />
+      <workItem from="1584965622326" duration="5408000" />
+      <workItem from="1585738691063" duration="45000" />
+      <workItem from="1586253963372" duration="21000" />
+      <workItem from="1588731190809" duration="1671000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584877132107">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1584877132107" />
+    <state x="397" y="167" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584880159070">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="397" y="167" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1584880159070" />
+    <state x="283" y="0" key="CommitChangelistDialog2" timestamp="1588733394374">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="283" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1588733394374" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1584870516775">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1584870516775" />
+    <state x="339" y="164" key="run.anything.popup" timestamp="1584877088524">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="164" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1584877088524" />
+  </component>
+</project>
