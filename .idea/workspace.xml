@@ -2,17 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73a8ed7d-7995-4973-a35a-05ed38e93658" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vue-command.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RunCopySave.zpi" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/example/helloworld.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/example/v-for.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/example/v-if.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/example/v-show.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/js/vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/example/v-bind.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/example/v-model.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/example/v-on.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/example/v-text.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/vue.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/example/v-for.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/example/v-for.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/example/v-if.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/example/v-if.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/example/v-show.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/example/v-show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,16 +39,17 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/example" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/images" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\git\vue-command\src" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\git\vue-command\src\images" />
       <recent name="E:\git\vue-command\src\example" />
       <recent name="E:\git\vue-command\src" />
       <recent name="E:\git\vue-command\js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\git\vue-command\src" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.index.html (1)">
@@ -102,12 +102,25 @@
       <workItem from="1584965622326" duration="5408000" />
       <workItem from="1585738691063" duration="45000" />
       <workItem from="1586253963372" duration="21000" />
-      <workItem from="1588731190809" duration="1671000" />
+      <workItem from="1588731190809" duration="2271000" />
+      <workItem from="1588740080105" duration="10015000" />
     </task>
+    <task id="LOCAL-00001" summary="首次提交">
+      <created>1588733503905</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1588733503905</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="首次提交" />
+    <option name="LAST_COMMIT_MESSAGE" value="首次提交" />
   </component>
   <component name="WindowStateProjectService">
     <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584877132107">
@@ -118,17 +131,25 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="397" y="167" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1584880159070" />
-    <state x="283" y="0" key="CommitChangelistDialog2" timestamp="1588733394374">
+    <state x="283" y="0" key="CommitChangelistDialog2" timestamp="1588733497869">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="283" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1588733394374" />
+    <state x="283" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1588733497869" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1584870516775">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1584870516775" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1588733536975">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1588733536975" />
     <state x="339" y="164" key="run.anything.popup" timestamp="1584877088524">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="164" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1584877088524" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1588742887207">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1588742887207" />
   </component>
 </project>

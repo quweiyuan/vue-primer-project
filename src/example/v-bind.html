@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <title>v-bind 案例</title>
+</head>
+<body>
+<h4>v-bind是处理HTML中的标签属性的,用于给标签动态赋值。缩写 v-bind=:  (例: v-bind:href="url" --> :href="url")</h4>
+<hr>
+<div id="app">
+    <h4>简单示例</h4>
+    <img v-bind:src="imgSrc"  width="200px">
+    <hr>
+    <h4>绑定css样式</h4>
+    在绑定CSS样式时，绑定的值必须在vue中的data属性中进行声明。
+    <ul>
+        <li>直接绑定class样式</li>
+        <div :class="classA">绑定classA</div>
+        <li>绑定classA并进行判断，在isOK为true时显示样式，在isOk为false时不显示样式</li>
+        <div :class="{classA:isOk}">绑定class中的判断</div>
+        <li>绑定class中的数组</li>
+        <div :class="[classA,classB]">绑定class中的数组</div>
+        <li>绑定class中使用三元表达式判断</li>
+        <div :class="isOk?classA:classB">绑定class中的三元表达式判断</div>
+        <li>绑定style</li>
+        <div :style="{color:red,fontSize:font}">绑定style</div>
+        <li>用对象绑定style样式</li>
+        <div :style="styleObject">用对象绑定style样式</div>
+    </ul>
+
+</div>
+
+<script type="text/javascript">
+    var app=new Vue({
+        el:'#app',
+        data:{
+            imgSrc:'../images/vue.jpg',
+            classA:'color:#F00',
+            styleObject:{
+                fontSize:'24px',
+                color:'green'
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <title>v-on 案例</title>
+</head>
+<body>
+<h4>v-on 就是监听事件，可以用v-on指令监听DOM事件来触发一些javascript代码。 简写 @  (例：v-on:click = @click)</h4>
+
+<hr>
+<h4>例：使用绑定事件监听器，编写一个加分减分的程序。</h4>
+
+<div id="app">
+    分数值：{{count}}
+    <button @click="addtion">加分</button>
+    <button @click="subtraction">减分</button>
+</div>
+
+<script type="text/javascript">
+    var app=new Vue({
+        el:'#app',
+        data:{
+            count: 1
+        },
+        methods:{
+            addtion:function () {
+                 this.count++;
+            },
+            subtraction:function () {
+                 this.count--;
+            }
+        }
+    })
+</script>
+</body>
+</html>
