@@ -25,8 +25,8 @@
         </ul>
 
         <!--注释内容，本人亲测不使用Vue.set也能自动检测到数组的变动。不知道是不是版本更新，优化了这一项，待求证-->
-        <!--  <hr>
-      <h4>为什么要有Vue.set存在？</h4>
+        <hr>
+        <h4>为什么要有Vue.set存在？</h4>
         <div><p>由于Javascript的限制，Vue不能自动检测以下变动的数组。</p>
             <ul>
                 <li>当你利用索引直接设置一个项时，vue不会为我们自动更新。</li>
@@ -45,7 +45,7 @@
         <p>
             <button onclick="add(1)">不使用Vue.set外部添加</button>
             <button onclick="add(2)">使用Vue.set外部添加</button>
-        </p>-->
+        </p>
     </div>
 
     <script type="text/javascript">
@@ -53,10 +53,10 @@
         function add(type){
             console.log("执行了外部添加");
             if(type==1){
-                outData.count++;
+                //outData.count++;
                 app.arr[3]='mmmm';
             }else{
-                Vue.set(outData,'count',4);
+                //Vue.set(outData,'count',4);
                 Vue.set(app.arr,1,'yyyy');
             }
         }

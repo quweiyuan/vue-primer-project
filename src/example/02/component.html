@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>Component组件 案例</title>
+</head>
+<body>
+    <div id="app">
+        <p>component组件是Vue学习的重点、重点、重点，重要的事情说三遍。所以必须学好Vue component。
+            其实组件就是制作自定义的标签，这些标签在HTML中是没有的。
+        </p>
+        <hr>
+        <h4>全局化注册组件</h4>
+        <p>全局化就是在构造器的外部用Vue.component来注册，我们注册现在就注册一个的组件来体验一下。</p>
+        <img src="" alt="">
+        <p>我们在javascript里注册了一个组件，在HTML中调用了他。
+            这就是最简单的一个组件的编写方法，并且它可以放到多个构造器的作用域里。
+        </p>
+        <hr>
+        <h4>局部注册组件</h4>
+        <p>局部注册组件局部注册组件和全局注册组件是向对应的，局部注册的组件只能在组件注册的作用域里进行使用，
+            其他作用域使用无效。
+        </p>
+        <img src="" alt="">
+        <p>从代码中你可以看出局部注册其实就是写在构造器里，但是你需要注意的是，构造器里的components 是加s的，
+            而全局注册是不加s的。
+        </p>
+        <hr>
+        <h4>组件和指令的区别</h4>
+        <p>组件注册的是一个标签，而指令注册的是已有标签里的一个属性。在实际开发中我们还是用组件比较多，指令用的比较少。
+            因为指令看起来封装的没那么好，这只是个人观点。
+        </p>
+    </div>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message: 'hello Vue!'
+            }
+        })
+    </script>
+
+    <style>
+
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        img{
+            padding-left: 1rem;
+        }
+        div{
+            padding-left: 1rem;
+        }
+    </style>
+</body>
+</html>

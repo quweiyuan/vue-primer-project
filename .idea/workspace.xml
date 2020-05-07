@@ -1,37 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="73a8ed7d-7995-4973-a35a-05ed38e93658" name="Default Changelist" comment="vue第二部分内容学习">
-      <change afterPath="$PROJECT_DIR$/src/example/01/helloworld.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/example/01/other.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/example/01/v-bind.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/example/01/v-for.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/example/01/v-if.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/example/01/v-model.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/example/01/v-on.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/example/01/v-show.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/example/01/v-text.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/example/02/directive.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/example/02/extend.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/example/02/set.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/extend.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/extend_01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/extend_02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/set_01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/set_02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/set_03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/set_04.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/set_05.png" afterDir="false" />
+    <list default="true" id="73a8ed7d-7995-4973-a35a-05ed38e93658" name="Default Changelist" comment="vue指令篇学习告一段落">
+      <change afterPath="$PROJECT_DIR$/src/example/02/component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/example/02/lifecycle.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/example/02/template.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/lifecycle_01.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/example/helloworld.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/example/other.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/example/v-bind.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/example/v-for.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/example/v-if.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/example/v-model.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/example/v-on.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/example/v-show.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/example/v-text.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/example/02/set.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/example/02/set.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/set_05.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/set_05.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,19 +40,19 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/example" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/example/02" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\git\vue-command\src\example" />
-      <recent name="D:\git\vue-primer-project\src\example" />
-      <recent name="E:\git\vue-command\src\images" />
-      <recent name="E:\git\vue-command\src" />
-      <recent name="E:\git\vue-command\js" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\git\vue-command\src\example\02" />
       <recent name="E:\git\vue-command\src\example\01" />
+      <recent name="E:\git\vue-command\src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\git\vue-primer-project\src\example\02" />
+      <recent name="E:\git\vue-command\src\example" />
+      <recent name="D:\git\vue-primer-project\src\example" />
+      <recent name="E:\git\vue-command\src\images" />
       <recent name="E:\git\vue-command\src" />
     </key>
   </component>
@@ -83,7 +60,7 @@
     <configuration default="true" type="JavascriptDebugType" engineId="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" uri="http://localhost:63342/vue-primer-project/src/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="index.html" type="JavascriptDebugType" nameIsGenerated="true" engineId="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" uri="http://localhost:63343/vue-command/src/index.html" useBuiltInWebServerPort="true">
+    <configuration name="index.html" type="JavascriptDebugType" nameIsGenerated="true" engineId="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" uri="http://localhost:63342/vue-primer-project/src/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -146,10 +123,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="vue第二部分内容学习" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588827694011">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="128" y="20" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588859635703">
+      <screen x="0" y="0" width="1280" height="770" />
     </state>
-    <state x="128" y="20" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.770@0.0.1280.770" timestamp="1588773684404" />
+    <state x="128" y="20" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.770@0.0.1280.770" timestamp="1588859635703" />
     <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1588827694011" />
     <state x="397" y="167" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584880159070">
       <screen x="0" y="0" width="1366" height="728" />
@@ -164,10 +141,10 @@
     </state>
     <state x="265" y="0" key="CommitChangelistDialog2/0.0.1280.770@0.0.1280.770" timestamp="1588780895847" />
     <state x="283" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1588847161875" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1588827687476">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="434" y="126" key="FileChooserDialogImpl" timestamp="1588859632065">
+      <screen x="0" y="0" width="1280" height="770" />
     </state>
-    <state x="434" y="126" key="FileChooserDialogImpl/0.0.1280.770@0.0.1280.770" timestamp="1588773625624" />
+    <state x="434" y="126" key="FileChooserDialogImpl/0.0.1280.770@0.0.1280.770" timestamp="1588859632065" />
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1588827687476" />
     <state width="1345" height="262" key="GridCell.Tab.0.bottom" timestamp="1588840844583">
       <screen x="0" y="0" width="1366" height="728" />

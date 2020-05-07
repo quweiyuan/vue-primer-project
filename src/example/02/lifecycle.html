@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>Vue的生命周期（钩子函数）案例</title>
+</head>
+<body>
+    <div id="app">
+        <p>Vue一共有10个生命周期函数，我们可以利用这些函数在vue的每个阶段都进行操作数据或者改变内容。</p>
+        <img src="../../images/lifecycle_01.png">
+        <hr>
+        <h4>构造函数的生命周期</h4>
+        <p>下面我们来看一段代码,通过下面这个实例在浏览器控制台输出的内容来清晰的了解生命周期过程</p>
+        <div>分数值：{{count}}</div>
+        <br>
+        <p>操作：
+            <button @click="addition">加分</button>
+            <button onclick="app.$destroy()">销毁</button>
+        </p>
+
+    </div>
+
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                count: 1
+            },
+            methods:{
+                addition:function(){
+                    this.count++;
+                }
+            },
+            beforeCreate:function(){
+                console.log('1-beforeCreate 初始化之后');
+            },
+            created:function(){
+                console.log('2-created 创建完成');
+            },
+            beforeMount:function(){
+                console.log('3-beforeMount 挂载之前');
+            },
+            mounted:function(){
+                console.log('4-mounted 被创建');
+            },
+            beforeUpdate:function(){
+                console.log('5-beforeUpdate 数据更新前');
+            },
+            updated:function(){
+                console.log('6-updated 被更新后');
+            },
+            activated:function(){
+                console.log('7-activated');
+            },
+            deactivated:function(){
+                console.log('8-deactivated');
+            },
+            beforeDestroy:function(){
+                console.log('9-beforeDestroy 销毁之前');
+            },
+            destroyed:function(){
+                console.log('10-destroyed 销毁之后')
+            }
+        });
+    </script>
+
+    <style>
+
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        img{
+            padding-left: 1rem;
+        }
+        div{
+            padding-left: 1rem;
+        }
+    </style>
+</body>
+</html>
