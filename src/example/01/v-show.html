@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>v-show 案例</title>
+</head>
+<body>
+
+    <div id="app">
+        <h1>v-show 控制是否显示</h1>
+        <h4>v-show:调整css中display属性，DOM已经加载，只是CSS控制没有显示出来</h4><br>
+        <div>
+        <p>v-if 和 v-show 的区别：</p>
+        <ul>
+            <li>v-if： 判断是否加载，可以减轻服务器的压力，在需要时加载。</li>
+            <li>v-show：调整css dispaly属性，可以使客户端操作更加流畅。</li>
+        </ul>
+        </div>
+        <hr>
+        <div v-show="isLogin">用户名：admin</div>
+    </div>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                isLogin:false
+            }
+        })
+    </script>
+
+    <style>
+
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        div{
+            padding-left: 1rem;
+        }
+    </style>
+</body>
+</html>

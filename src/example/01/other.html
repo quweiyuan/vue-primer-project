@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>其他内部指令 v-pre & v-cloak & v-once 案例</title>
+</head>
+<body>
+    <div id="app">
+        <h4>v-pre:在模板中跳过vue的编译，直接输出原始值。就是在标签中加入v-pre就不会输出vue中的data值了。</h4>
+        <p v-pre>{{message}}</p>
+        <hr>
+        <h4>v-cloak:在vue渲染完指定的整个DOM后才进行显示。它必须和CSS样式一起使用。</h4>
+        <p v-cloak>{{message}}</p>
+        <hr>
+        <h4>v-once:在第一次DOM时进行渲染，渲染完成后视为静态内容，跳出以后的渲染过程。</h4>
+        <p v-once>第一次绑定的值：{{message}}</p>
+        <p><input type="text" v-model="message"></p>
+    </div>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message: 'hello Vue!'
+            }
+        })
+    </script>
+
+    <style>
+
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+    </style>
+</body>
+</html>

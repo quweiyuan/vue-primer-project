@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>Vue.set 全局操作 案例</title>
+</head>
+<body>
+    <div id="app">
+        <h4>Vue.set</h4>
+        <p>Vue.set 的作用就是在构造器外部操作构造器内部的数据、属性或者方法。比如在vue构造器内部定义了一个count为1的数据，我们在构造器外部定义了一个方法，要每次点击按钮给值加1.就需要用到Vue.set。</p>
+        <hr>
+        <h4>引用构造器外部数据</h4>
+        <p>什么是外部数据? 就是不在Vue构造器里的data处声明，而是在构造器外部声明，然后在data处引用就可以了。外部数据的加入让程序更加灵活，我们可以在外部获取任何想要的数据形式，然后让data引用。 看一个简单的代码：</p>
+        <img src="../../images/set_01.png">
+        <hr>
+        <h4>在外部改变数据的三种方法</h4>
+        <ul>
+            <li>用Vue.set改变</li>
+            <img src="../../images/set_02.png">
+            <li>用Vue对象的方法添加</li>
+            <img src="../../images/set_03.png">
+            <li>直接操作外部数据</li>
+            <img src="../../images/set_04.png">
+        </ul>
+
+        <!--注释内容，本人亲测不使用Vue.set也能自动检测到数组的变动。不知道是不是版本更新，优化了这一项，待求证-->
+        <!--  <hr>
+      <h4>为什么要有Vue.set存在？</h4>
+        <div><p>由于Javascript的限制，Vue不能自动检测以下变动的数组。</p>
+            <ul>
+                <li>当你利用索引直接设置一个项时，vue不会为我们自动更新。</li>
+                <li>当你修改数组的长度时，vue不会为我们自动更新。</li>
+            </ul>
+            <p>下面来看一段代码:</p>
+            <img src="../../images/set_05.png">
+
+            <p>这时我们的界面是不会自动跟新数组的，我们需要用Vue.set(app.arr,1,’yyyy’)来设置改变，vue才会给我们自动更新，这就是Vue.set存在的意义。</p>
+        </div>
+        <hr>
+        <p>{{count}}</p>
+        <ul>
+            <li v-for=" aa in arr">{{aa}}</li>
+        </ul>
+        <p>
+            <button onclick="add(1)">不使用Vue.set外部添加</button>
+            <button onclick="add(2)">使用Vue.set外部添加</button>
+        </p>-->
+    </div>
+
+    <script type="text/javascript">
+
+        function add(type){
+            console.log("执行了外部添加");
+            if(type==1){
+                outData.count++;
+                app.arr[3]='mmmm';
+            }else{
+                Vue.set(outData,'count',4);
+                Vue.set(app.arr,1,'yyyy');
+            }
+        }
+        var outData={
+            count:6,
+            goodName:'car',
+            arr:['aaa','bbb','ccc']
+        };
+        var app=new Vue({
+            el:'#app',
+            data:outData
+        });
+    </script>
+
+    <style>
+
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        img{
+            padding-left: 1rem;
+        }
+        li{
+            padding-left: 1rem;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>Vue.directive 自定义指令 案例</title>
+</head>
+<body>
+    <div id="app">
+        <h4>什么是全局api?</h4>
+        <p>全局API并不在构造器里，而是先声明全局变量或者直接在Vue上定义一些新功能，Vue内置了一些全局API，比如我们今天要学习的指令Vue.directive。
+            说的简单些就是，在构造器外部用Vue提供给我们的API函数来定义新的功能。
+        </p>
+        <hr>
+        <h4>Vue.directive 自定义指令</h4>
+        <p>我们在第一部分就学习了内部指令，我们也可以定义一些属于自己的指令，比如我们要定义一个v-change的指令，作用就是让文字变成绿色。<br>
+            在自定义指令前我们写一个小功能，在页面上有一个数字为10，数字的下面有一个按钮，我们每点击一次按钮后，数字加1。 <br>
+        </p>
+        <div v-changefont="color" id="change">数值：{{number}} <button @click="addition">add</button></div>
+
+
+        <hr>
+        <h4>自定义指令中传递的三个参数</h4>
+        <ul>
+            <li>el: 指令所绑定的元素，可以用来直接操作DOM。</li>
+            <li>binding: 一个对象，包含指令的很多信息。</li>
+            <li>vnode: Vue编译生成的虚拟节点。</li>
+        </ul>
+
+        <hr>
+        <h4>自定义指令的生命周期</h4>
+        <p>自定义指令有五个生命周期（也叫钩子函数），分别是 bind,inserted,update,componentUpdated,unbind</p>
+        <ul>
+            <li>bind:只调用一次，指令第一次绑定到元素时调用，用这个钩子函数可以定义一个绑定时执行一次的初始化动作。</li>
+            <li>inserted:被绑定元素插入父节点时调用（父节点存在即可调用，不必存在于document中）。</li>
+            <li>update:被绑定于元素所在的模板更新时调用，而无论绑定值是否变化。通过比较更新前后的绑定值，可以忽略不必要的模板更新。</li>
+            <li>componentUpdated:被绑定元素所在模板完成一次更新周期时调用。</li>
+            <li>unbind:只调用一次，指令与元素解绑时调用。</li>
+        </ul>
+        <p>下面我们通过在浏览器控制台的输出顺序来了解一下生命周期的执行顺序</p>
+        <p>
+            <button onclick='unbind()'>解绑指令</button>
+        </p>
+    </div>
+
+    <script type="text/javascript">
+
+        function unbind(){
+            app.$destroy();
+        }
+
+        Vue.directive('changefont',{//被绑定
+        bind:function(el,binding,vnode){
+            el.style='color:'+binding.value;
+            console.log('1 - bind');
+        },
+        inserted:function(){//绑定到节点
+            console.log('2 - inserted');
+        },
+        update:function(){//组件更新
+            console.log('3 - update');
+        },
+        componentUpdated:function(){//组件更新完成
+            console.log('4 - componentUpdated');
+        },
+        unbind:function(){//解绑
+            console.log('5 - unbind');
+        }
+        });
+
+        var app=new Vue({
+            el:'#app',
+            data:{
+                color:'green',
+                number: 10
+            },
+            methods:{
+                addition:function(){
+                    this.number++;
+                }
+            }
+        });
+
+
+    </script>
+
+    <style>
+
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        div{
+            padding-left: 1rem;
+        }
+    </style>
+</body>
+</html>

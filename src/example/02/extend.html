@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>Vue.extend 构造器的延伸 案例</title>
+</head>
+<body>
+    <div id="app">
+        <h4>什么是Vue.extend?</h4>
+        <p>Vue.extend 返回的是一个“扩展实例构造器”,也就是预设了部分选项的Vue实例构造器。<br>
+            经常服务于Vue.component用来生成组件，可以简单理解为当在模板中遇到该组件名称作为标签的自定义元素时， <br>
+            会自动调用“扩展实例构造器”来生产组件实例，并挂载到自定义元素上。 由于我们还没有学习Vue的自定义组件，所以我们先看跟组件无关的用途。
+        </p>
+        <hr>
+        <h4>自定义无参数标签</h4>
+        <p>{{htmltext}}</p>
+        <img src="../../images/extend.png">
+        <p>这时html中的标签还是不起作用的，因为扩展实例构造器是需要挂载的，我们再进行一次挂载。</p>
+        <img src="../../images/extend_01.png">
+        <p>{{ptext}}</p>
+        <author></author>
+        <hr>
+        <h4>挂在到普通标签上</h4>
+        <p>还可以通过HTML标签上的id或者class来生成扩展实例构造器，Vue.extend里的代码是一样的，只是在挂载的时候，我们用类似jquery的选择器的方法，来进行挂载就可以了。</p>
+        <img src="../../images/extend_02.png">
+    </div>
+
+    <script type="text/javascript">
+        var authorExtend = Vue.extend({
+            template:"<p>Vue.js作者:<a :href='authorUrl'>{{authorName}}</a></p>",
+            data:function(){
+                return{
+                    authorName:'尤雨溪',
+                    authorUrl:'https://evanyou.me/'
+                }
+            }
+        });
+        console.log(new authorExtend());
+
+        new authorExtend().$mount('#author');
+
+        var app=new Vue({
+            el:'#app',
+            data:{
+                ptext:'这时我们在html写<author><author>就是管用的。我们来试用一下:',
+                htmltext:'我们想象一个需求，需求是这样的，要在博客页面多处显示作者的网名，并在网名上直接有链接地址。\n' +
+                    '            我们希望在html中只需要写<author></author>，这和自定义组件很像，但是他没有传递任何参数，只是个静态标签。\n' +
+                    '            我们的Vue.extend该登场了，我们先用它来编写一个扩展实例构造器。我们的Vue.extend该登场了，我们先用它来编写一个扩展实例构造器。代码如下：'
+            }
+        })
+    </script>
+
+    <style>
+
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        img{
+            padding-left: 1rem;
+        }
+    </style>
+</body>
+</html>

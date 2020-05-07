@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>v-bind 案例</title>
+</head>
+<body>
+
+    <div id="app">
+        <h4>v-bind是处理HTML中的标签属性的,用于给标签动态赋值。缩写 v-bind=:  (例: v-bind:href="url" --> :href="url")</h4>
+        <hr>
+        <h4>简单示例</h4>
+        <img v-bind:src="imgSrc"  width="200px">
+        <hr>
+        <h4>绑定css样式</h4>
+        <p>在绑定CSS样式时，绑定的值必须在vue中的data属性中进行声明。</p>
+        <ul>
+            <li>直接绑定class样式</li>
+            <div :class="className">绑定classA</div>
+            <li>绑定classA并进行判断，在isOK为true时显示样式，在isOk为false时不显示样式</li>
+            <div :class="{classA:isOk}">绑定class中的判断</div>
+            <li>绑定class中的数组</li>
+            <div :class="[classA,classB]">绑定class中的数组</div>
+            <li>绑定class中使用三元表达式判断</li>
+            <div :class="isOk?classA:classB">绑定class中的三元表达式判断</div>
+            <li>绑定style</li>
+            <div :style="{color:red,fontSize:font}">绑定style</div>
+            <li>用对象绑定style样式</li>
+            <div :style="styleObject">用对象绑定style样式</div>
+        </ul>
+
+    </div>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                imgSrc:'../../images/vue.jpg',
+                className:'classA',
+                isOk:true,
+                classA:'classA',
+                classB:'classB',
+                red:'red',
+                font:'18pt',
+                styleObject:{
+                    fontSize:'24px',
+                    color:'green'
+                }
+            }
+        })
+    </script>
+
+    <style>
+        .classA{
+            color:red;
+        }
+        .classB{
+            font-size: 25pt;
+        }
+
+         h4{
+             border-left: 4px solid rgb(156, 203, 250);
+             padding-left: 1rem;
+             margin-bottom: 1rem;
+             margin-top: 1rem;
+             color: #666;
+             font-size: 1.3rem;
+             font-weight: bold;
+         }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        img{
+            padding-left: 1rem;
+        }
+    </style>
+</body>
+</html>
