@@ -13,7 +13,8 @@
         <hr>
         <h4>全局化注册组件</h4>
         <p>全局化就是在构造器的外部用Vue.component来注册，我们注册现在就注册一个的组件来体验一下。</p>
-        <img src="" alt="">
+        <img src="../../images/component_01.png" alt="">
+        <p>示例：<study></study></p>
         <p>我们在javascript里注册了一个组件，在HTML中调用了他。
             这就是最简单的一个组件的编写方法，并且它可以放到多个构造器的作用域里。
         </p>
@@ -22,7 +23,8 @@
         <p>局部注册组件局部注册组件和全局注册组件是向对应的，局部注册的组件只能在组件注册的作用域里进行使用，
             其他作用域使用无效。
         </p>
-        <img src="" alt="">
+        <img src="../../images/component_02.png" alt="">
+        <p>示例：<learn></learn></p>
         <p>从代码中你可以看出局部注册其实就是写在构造器里，但是你需要注意的是，构造器里的components 是加s的，
             而全局注册是不加s的。
         </p>
@@ -34,10 +36,17 @@
     </div>
 
     <script type="text/javascript">
+
+        Vue.component('study',{
+            template:'<div style="color:red">全局化注册的study标签</div>'
+        });
+
         var app=new Vue({
             el:'#app',
-            data:{
-                message: 'hello Vue!'
+            components:{
+                'learn':{
+                    template:'<div style="color:green">局部注册的learn标签</div>'
+                }
             }
         })
     </script>

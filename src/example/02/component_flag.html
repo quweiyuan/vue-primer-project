@@ -3,67 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <script type="text/javascript" src="../../js/vue.js"></script>
-    <title>Vue的生命周期（钩子函数）案例</title>
+    <title>Component标签 案例</title>
 </head>
 <body>
     <div id="app">
-        <p>Vue一共有10个生命周期函数，我们可以利用这些函数在vue的每个阶段都进行操作数据或者改变内容。</p>
-        <img src="../../images/lifecycle_01.png">
+        <p>{{text}}</p>
         <hr>
-        <h4>构造函数的生命周期</h4>
-        <p>下面我们来看一段代码,通过下面这个实例在浏览器控制台输出的内容来清晰的了解生命周期过程</p>
-        <img src="../../images/lifecycle_02.png" >
-        <p>实例：</p>
-        <div>分数值：{{count}}</div>
-        <br>
-        <p>操作：
-            <button @click="addition">加分</button>
-            <button onclick="app.$destroy()">销毁</button>
-        </p>
+        <p>我们先在构造器外部定义三个不同的组件，分别是componentA,componentB和componentC.</p>
+        <img src="../../images/component_flag_01.png" alt="">
+        <p>我们在构造器的components选项里加入这三个组件。</p>
+        <img src="../../images/component_flag_02.png" alt="">
+        <p>我们在html里插入component标签，并绑定who数据，根据who的值不同，调用不同的组件。</p>
+        <img src="../../images/component_flag_03.png" alt="">
+        <p>这就是我们的组件标签的基本用法。</p>
+        <hr>
+        <p>我们改进一下，实现一个功能：给页面加个按钮，每点以下更换一个组件。</p>
+        <p><component :is="who"></component></p>
+        <p><button @click="changeComponent">点击改变组件</button></p>
 
     </div>
 
-
     <script type="text/javascript">
-        var app=new Vue({
-            el:'#app',
-            data:{
-                count: 1
+
+        const componentA = {
+            template:`<div style="color: red"> this is componentA</div>`
+        };
+        const componentB = {
+            template:`<div style="color: green"> this is componentB</div>`
+        };
+        const componentC = {
+            template:`<div style="color: yellowgreen"> this is componentC</div>`
+        };
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                who: 'componentA',
+                text: '<component></component>标签是Vue框架自定义的标签，它的用途就是可以动态绑定我们的组件，根据数据的不同更换不同的组件。',
+            },
+            components: {
+                'componentA': componentA,
+                'componentB': componentB,
+                'componentC': componentC,
             },
             methods:{
-                addition:function(){
-                    this.count++;
+                changeComponent:function () {
+                    if(this.who == 'componentA'){
+                        this.who = 'componentB'
+                    }else if(this.who == 'componentB'){
+                        this.who = 'componentC'
+                    }else{
+                        this.who = 'componentA'
+                    }
                 }
-            },
-            beforeCreate:function(){
-                console.log('1-beforeCreate 初始化之后');
-            },
-            created:function(){
-                console.log('2-created 创建完成');
-            },
-            beforeMount:function(){
-                console.log('3-beforeMount 挂载之前');
-            },
-            mounted:function(){
-                console.log('4-mounted 被创建');
-            },
-            beforeUpdate:function(){
-                console.log('5-beforeUpdate 数据更新前');
-            },
-            updated:function(){
-                console.log('6-updated 被更新后');
-            },
-            activated:function(){
-                console.log('7-activated');
-            },
-            deactivated:function(){
-                console.log('8-deactivated');
-            },
-            beforeDestroy:function(){
-                console.log('9-beforeDestroy 销毁之前');
-            },
-            destroyed:function(){
-                console.log('10-destroyed 销毁之后')
             }
         });
     </script>
@@ -118,8 +110,6 @@
 
         img{
             padding-left: 1rem;
-            width: 40%;
-            height: 30%;
         }
         div{
             padding-left: 1rem;
