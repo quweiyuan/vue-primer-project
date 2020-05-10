@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>propsData Option  全局扩展的数据传递 案例</title>
+</head>
+<body>
+    <div id="app">
+        <p>propsData 不是和属性有关，它用来全局拓展时进行数据传递</p>
+        <hr>
+        <p>天我们来学习一下propsData，第二部分中我们学习了全局拓展与组件的相关知识，通过下面这个小例子顺带来复习一下。</p>
+
+        <example></example>
+        <p>
+            扩展标签已经做好了，这时我们要在挂载时传递一个数字过去，我们就用到了propsData。
+            我们用propsData三步解决传值：
+            <ul>
+                <li>1.在全局扩展里加入props进行接收。propsData:{a:1}</li>
+                <li>2.传递时用propsData进行传递。props:[‘a’]</li>
+                <li>3.用插值的形式写入模板。{{ a }} </li>
+            </ul>
+        </p>
+    </div>
+
+    <script type="text/javascript">
+
+        const example=Vue.extend({
+            template:`<div style="color:green"> 示例：{{message}}-----{{num}}</div>`,
+            data:function () {
+                return {
+                    message:'this is a example adbout propsdata.'
+                }
+            },
+            props:['num']
+        });
+
+        new example({propsData:{num:666}}).$mount('example');
+    </script>
+
+    <style>
+
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        img{
+            padding-left: 1rem;
+            width: 40%;
+            height: 30%;
+        }
+        div{
+            padding-left: 1rem;
+        }
+    </style>
+</body>
+</html>
