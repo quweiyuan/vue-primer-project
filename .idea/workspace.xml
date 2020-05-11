@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="73a8ed7d-7995-4973-a35a-05ed38e93658" name="Default Changelist" comment="vue指令篇学习告一段落">
-      <change afterPath="$PROJECT_DIR$/src/example/03/computed.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/example/03/methods.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/example/03/propsdata.html" afterDir="false" />
+    <list default="true" id="73a8ed7d-7995-4973-a35a-05ed38e93658" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/example/03/methods.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/example/03/methods.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +34,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/example/03" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -98,6 +95,7 @@
       <workItem from="1588731190809" duration="2271000" />
       <workItem from="1588740080105" duration="10015000" />
       <workItem from="1588773353664" duration="4050000" />
+      <workItem from="1589204574707" duration="2604000" />
     </task>
     <task id="LOCAL-00001" summary="首次提交">
       <created>1588733503905</created>
@@ -106,18 +104,69 @@
       <option name="project" value="LOCAL" />
       <updated>1588733503905</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="第三部分vue基本选项学习">
+      <created>1589112764563</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1589112764563</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_TABS">
+      <set>
+        <option value="1" />
+      </set>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="首次提交" />
     <MESSAGE value="vue指令篇学习告一段落" />
     <MESSAGE value="vue第二部分内容学习" />
-    <option name="LAST_COMMIT_MESSAGE" value="vue第二部分内容学习" />
+    <MESSAGE value="第三部分vue基本选项学习" />
+    <option name="LAST_COMMIT_MESSAGE" value="第三部分vue基本选项学习" />
   </component>
   <component name="WindowStateProjectService">
     <state x="128" y="20" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589106200300">
@@ -133,15 +182,15 @@
       <screen x="0" y="0" width="1280" height="770" />
     </state>
     <state x="371" y="132" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.770@0.0.1280.770" timestamp="1588780192604" />
-    <state x="283" y="0" key="CommitChangelistDialog2" timestamp="1588847161875">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="265" y="0" key="CommitChangelistDialog2/0.0.1280.770@0.0.1280.770" timestamp="1588780895847" />
-    <state x="283" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1588847161875" />
-    <state x="434" y="126" key="FileChooserDialogImpl" timestamp="1589106198540">
+    <state x="265" y="0" key="CommitChangelistDialog2" timestamp="1589112763163">
       <screen x="0" y="0" width="1280" height="770" />
     </state>
-    <state x="434" y="126" key="FileChooserDialogImpl/0.0.1280.770@0.0.1280.770" timestamp="1589106198540" />
+    <state x="265" y="0" key="CommitChangelistDialog2/0.0.1280.770@0.0.1280.770" timestamp="1589112763163" />
+    <state x="283" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1588847161875" />
+    <state x="434" y="126" key="FileChooserDialogImpl" timestamp="1589112863798">
+      <screen x="0" y="0" width="1280" height="770" />
+    </state>
+    <state x="434" y="126" key="FileChooserDialogImpl/0.0.1280.770@0.0.1280.770" timestamp="1589112863798" />
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1588902479515" />
     <state width="1345" height="262" key="GridCell.Tab.0.bottom" timestamp="1588840844583">
       <screen x="0" y="0" width="1366" height="728" />
@@ -223,9 +272,10 @@
     </state>
     <state width="1260" height="240" key="GridCell.Tab.3.right/0.0.1280.770@0.0.1280.770" timestamp="1588778146174" />
     <state width="1345" height="262" key="GridCell.Tab.3.right/0.0.1366.728@0.0.1366.728" timestamp="1588840844584" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1588733536975">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="258" y="103" key="Vcs.Push.Dialog.v2" timestamp="1589112887278">
+      <screen x="0" y="0" width="1280" height="770" />
     </state>
+    <state x="258" y="103" key="Vcs.Push.Dialog.v2/0.0.1280.770@0.0.1280.770" timestamp="1589112887278" />
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1588733536975" />
     <state x="339" y="164" key="run.anything.popup" timestamp="1584877088524">
       <screen x="0" y="0" width="1366" height="728" />
