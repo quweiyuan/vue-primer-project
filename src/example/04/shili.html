@@ -3,42 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <script type="text/javascript" src="../../js/vue.js"></script>
-    <title>propsData Option  全局扩展的数据传递 案例</title>
+
+    <script type="text/javascript" src="../../js/jquery-3.3.1.js"></script>
+    <title>实例入门-实例属性 案例</title>
 </head>
 <body>
     <div id="app">
-        <p>propsData 不是和属性有关，它用来全局拓展时进行数据传递</p>
+        <h4>Vue和Jquery.js一起使用</h4>
+        <p>下载并引入jquery框架</p>
+            <div>下载可以去官网进行下载，我这里使用的版本是3.3.1，下载好后在需要的页面引入就可以了。
+                当然你还有很多其它的方法引入jquery，只要可以顺利引入就可以了。</div>
+        <p>试着作一个案例，在DOM被挂载后修改里边的内容。</p>
+        <img src="../../images/shili_01.png" alt="">
+        <p id="text">{{message}}</p>
+
+        <p>现在页面显示是：我是jQuery，而不是hello Vue了。</p>
         <hr>
-        <p>天我们来学习一下propsData，第二部分中我们学习了全局拓展与组件的相关知识，通过下面这个小例子顺带来复习一下。</p>
-
-
-
-        <example></example>
-        <p>
-            扩展标签已经做好了，这时我们要在挂载时传递一个数字过去，我们就用到了propsData。
-            我们用propsData三步解决传值：
-            <ul>
-                <li>1.在全局扩展里加入props进行接收。propsData:{a:1}</li>
-                <li>2.传递时用propsData进行传递。props:[‘a’]</li>
-                <li>3.用插值的形式写入模板。{{ a }} </li>
-            </ul>
-        <img src="../../images/propsdata_01.png" alt="">
-        </p>
+        <h4>实例调用自定义方法</h4>
+        <p>在Vue的构造器里我们写一个add方法，然后我们用实例的方法调用它。</p>
+        <img src="../../images/shili_02.png" alt="">
+        <p>作业：利用console.log把app打印出来，看看里边到底包含了哪些属性和方法。因为里边的属性很多，这里只是简单的介绍。</p>
     </div>
 
     <script type="text/javascript">
+        $(function(){
+            console.log(app);
+            app.add();
+        })
 
-        const example=Vue.extend({
-            template:`<div style="color:green"> 示例：{{message}}-----{{num}}</div>`,
-            data:function () {
-                return {
-                    message:'this is a example adbout propsdata.'
-                }
+
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message: 'hello Vue!'
             },
-            props:['num']
+            //在Vue中使用jQuery
+            mounted:function(){
+                $('#text').html('我是jQuery!');
+            },
+            methods:{
+                add:function(){
+                    console.log("调用了Add方法");
+                }
+            }
         });
 
-        new example({propsData:{num:666}}).$mount('example');
     </script>
 
     <style>
@@ -96,6 +105,9 @@
         }
         div{
             padding-left: 1rem;
+        }
+        span{
+            color:green;
         }
     </style>
 </body>

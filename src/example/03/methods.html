@@ -15,30 +15,44 @@
             </ul>
         </p>
         <p>现在知道了加参数的方法，看一段完整的代码，代码中给add添加了num参数，并在按钮上调用传递。</p>
+        <img src="../../images/methods_01.png" alt="">
         <div>示例数字：{{num}}
+
         <p><button @click="add(2,$event)">add</button></p>
+
         </div>
 
         <hr>
         <h4>methods中的$event参数</h4>
         <p>传递的$event参数都是关于你点击鼠标的一些事件和属性。我们先看看传递的方法。</p>
-
+        <img src="../../images/methods_02.png" alt="">
         <p>我们这时候可以打印一下，看看event到底是个怎样的对象。你会发现，它包含了大部分鼠标事件的属性。</p>
-
+        <img src="../../images/methods_03.png" alt="">
+        <img src="../../images/methods_04.png" alt="">
         <hr>
         <h4>native  给组件绑定构造器里的原生事件</h4>
         <p>在实际开发中经常需要把某个按钮封装成组件，然后反复使用，如何让组件调用构造器里的方法，而不是组件里的方法。
             就需要用到我们的.native修饰器了。
         </p>
         <p>现在我们把我们的add按钮封装成组件：</p>
-        <img src="" alt="">
-        <p>在构造器里声明:</p>
-        <img src="" alt="">
-        <p>用.native修饰器来调用构造器里的add方法</p>
 
+
+
+        <p>示例数值:{{num}}<btn @click.native="add(3)"></btn></p>
+
+        <img src="../../images/methods_05.png" alt="">
+        <p>在构造器里声明:</p>
+        <img src="../../images/methods_06.png" alt="">
+        <p>用.native修饰器来调用构造器里的add方法</p>
+        <img src="../../images/methods_07.png" alt="">
     </div>
 
     <script type="text/javascript">
+
+        const btn={
+            template:`<button>组件add</button>`
+        }
+
         var app=new Vue({
             el:'#app',
             data:{
@@ -54,6 +68,10 @@
                         this.num++;
                     }
                 }
+            },
+
+            components:{
+                'btn':btn
             }
         })
     </script>

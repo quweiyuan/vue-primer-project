@@ -3,42 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <script type="text/javascript" src="../../js/vue.js"></script>
-    <title>propsData Option  全局扩展的数据传递 案例</title>
+    <title>内置组件 -slot 案例</title>
 </head>
 <body>
     <div id="app">
-        <p>propsData 不是和属性有关，它用来全局拓展时进行数据传递</p>
-        <hr>
-        <p>天我们来学习一下propsData，第二部分中我们学习了全局拓展与组件的相关知识，通过下面这个小例子顺带来复习一下。</p>
+        <p>slot是标签的内容扩展，也就是说你用slot就可以在自定义组件时传递给组件内容，组件接收内容并输出。</p>
+        <p>先来定义一个组件，这个组件用来显示博主的一些信息。
+            我们在Vue 构造器里的data中给出了信息，信息如下：（博客地址，网名，使用技能）</p>
+        <img src="../../images/slot_01.png" alt="">
 
+        <p>我们用template标签的方式定义了组件：</p>
+        <img src="../../images/slot_02.png" alt="">
 
-
-        <example></example>
-        <p>
-            扩展标签已经做好了，这时我们要在挂载时传递一个数字过去，我们就用到了propsData。
-            我们用propsData三步解决传值：
-            <ul>
-                <li>1.在全局扩展里加入props进行接收。propsData:{a:1}</li>
-                <li>2.传递时用propsData进行传递。props:[‘a’]</li>
-                <li>3.用插值的形式写入模板。{{ a }} </li>
-            </ul>
-        <img src="../../images/propsdata_01.png" alt="">
-        </p>
+        <p>我们现在就可以用slot功能让组件接收传递过来的值，并在模板中接收显示。
+            slot的使用需要两步： 1、在HTML的组件中用slot属性传递值。</p>
+        <img src="../../images/slot_03.png" alt="">
+        <p>2、在组件模板中用标签接收值。</p>
+        <img src="../../images/slot_04.png" alt="">
+        <p>全部案例代码：</p>
+        <div><img src="../../images/slot_05.png" alt=""></div>
+        <div><img src="../../images/slot_06.png" alt=""></div>
+        <blog>
+            <span slot="blogUrl">{{blogData.blogUrl}}</span>
+            <span slot="netName">{{blogData.netName}}</span>
+            <span slot="skill">{{blogData.skill}}</span>
+        </blog>
     </div>
+    <template id="tmp">
+        <div>
+            <p>博客地址：<slot name="blogUrl"></slot></p>
+            <p>网名：<slot name="netName"></slot></p>
+            <p>技术类型：<slot name="skill"></slot></p>
+        </div>
+    </template>
 
     <script type="text/javascript">
+        const blog = {
+            template:'#tmp'
+        }
 
-        const example=Vue.extend({
-            template:`<div style="color:green"> 示例：{{message}}-----{{num}}</div>`,
-            data:function () {
-                return {
-                    message:'this is a example adbout propsdata.'
+        var app=new Vue({
+            el:'#app',
+            data:{
+                blogData:{
+                    blogUrl:'https://mp.csdn.net/console/article',
+                    netName:'yyp',
+                    skill:'java'
                 }
             },
-            props:['num']
-        });
-
-        new example({propsData:{num:666}}).$mount('example');
+            components:{
+                "blog":blog
+            }
+        })
     </script>
 
     <style>
@@ -96,6 +112,9 @@
         }
         div{
             padding-left: 1rem;
+        }
+        span{
+            color:green;
         }
     </style>
 </body>

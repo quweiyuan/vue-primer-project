@@ -11,6 +11,7 @@
         <hr>
         <h4>格式化输出结果</h4>
         <p>我们先来做个显示价格的例子：原始数据是price:100 但是我们输出给用户的样子是 ￥100元</p>
+        <img src="../../images/computed_01.png" alt="">
 
         <p>格式化输出后的数据:{{formatprice}}</p>
 
@@ -22,7 +23,8 @@
             <p>样例：
                     <ul v-for="news in newsList1"><li>{{news.title}}-----{{news.date}}</li></ul>
             </p>
-
+            <p>核心代码：</p>
+            <img src="../../images/computed_02.png" alt="">
             <p>最终需要得到的结果：
                     <ul v-for="news in reverseNews"><li>{{news.title}}-----{{news.date}}</li></ul>
             </p>
@@ -36,6 +38,7 @@
         var app=new Vue({
             el:'#app',
             data:{
+                price:100,
                  newsList:[
                     {title:'香港或就“装甲车被扣”事件追责 起诉涉事运输公司',date:'2017/3/10'},
                     {title:'日本第二大准航母服役 外媒：针对中国潜艇',date:'2017/3/12'},
@@ -60,6 +63,15 @@
 
     <style>
 
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
         p{
             width: 65%;
             display: block;
@@ -95,6 +107,15 @@
             -ms-text-size-adjust: 100%;
             -ms-overflow-style: scrollbar;
             -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        img{
+            padding-left: 1rem;
+            width: 40%;
+            height: 30%;
+        }
+        div{
+            padding-left: 1rem;
         }
     </style>
 </body>

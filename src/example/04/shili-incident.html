@@ -3,42 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <script type="text/javascript" src="../../js/vue.js"></script>
-    <title>propsData Option  全局扩展的数据传递 案例</title>
+    <title>helloworld</title>
 </head>
 <body>
-    <div id="app">
-        <p>propsData 不是和属性有关，它用来全局拓展时进行数据传递</p>
-        <hr>
-        <p>天我们来学习一下propsData，第二部分中我们学习了全局拓展与组件的相关知识，通过下面这个小例子顺带来复习一下。</p>
-
-
-
-        <example></example>
-        <p>
-            扩展标签已经做好了，这时我们要在挂载时传递一个数字过去，我们就用到了propsData。
-            我们用propsData三步解决传值：
-            <ul>
-                <li>1.在全局扩展里加入props进行接收。propsData:{a:1}</li>
-                <li>2.传递时用propsData进行传递。props:[‘a’]</li>
-                <li>3.用插值的形式写入模板。{{ a }} </li>
-            </ul>
-        <img src="../../images/propsdata_01.png" alt="">
+    <div>
+        <p>实例事件就是在构造器外部写一个调用构造器内部的方法。
+            这样写的好处是可以通过这种写法在构造器外部调用构造器内部的数据。
         </p>
+        <p>我们还是写一个点击按钮，持续加1的例子来学习</p>
+        <hr>
+        <h4>$on 在构造器外部添加事件。</h4>
+            <div id="app"><p>示例数字：{{num}}</p>
+                <p><button @click="add">add</button></p>
+
+            </div>
+        <p><button onclick="reduce()">reduce</button></p>
+
+        <p>$on接收两个参数，第一个参数是调用时的事件名称，第二个参数是一个匿名方法。
+
+            如果按钮在作用域外部，可以利用$emit来执行。</p>
+        <hr>
+        <h4>$once 执行一次的事件</h4>
+        <p><button onclick="reduceOnce()">reduceOnce</button></p>
+        <hr>
+        <h4>$off 关闭事件</h4>
+        <p><button onclick="off()">off</button></p>
     </div>
 
     <script type="text/javascript">
 
-        const example=Vue.extend({
-            template:`<div style="color:green"> 示例：{{message}}-----{{num}}</div>`,
-            data:function () {
-                return {
-                    message:'this is a example adbout propsdata.'
-                }
+
+        var app=new Vue({
+            el:'#app',
+            data:{
+                num: 8
             },
-            props:['num']
+            methods:{
+                add:function(){
+                    this.num++;
+                }
+            }
         });
 
-        new example({propsData:{num:666}}).$mount('example');
+        //实例事件
+        app.$on('reduce',function(){
+            console.log('执行了reduce()');
+            this.num--;
+        });
+
+        //只使用一次的实例方法
+        app.$once('reduceOnce',function(){
+            console.log('只执行一次的方法');
+            this.num--;
+
+        });
+
+        function reduce(){
+            app.$emit('reduce');
+        }
+
+        function reduceOnce(){
+            app.$emit('reduceOnce');
+        }
+
+        //关闭事件
+        function off(){
+            app.$off('reduce');
+        }
     </script>
 
     <style>
@@ -96,6 +127,9 @@
         }
         div{
             padding-left: 1rem;
+        }
+        span{
+            color:green;
         }
     </style>
 </body>

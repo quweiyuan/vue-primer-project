@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>Mixins 混入选项操作 案例</title>
+</head>
+<body>
+    <div id="app">
+        <p>Mixins一般有两种用途：</p>
+        <ul>
+            <li> 在你已经写好了构造器后，需要增加方法或者临时活动时使用的方法，这时用Mixins会减少源代码的污染。</li>
+            <li> 很多地方都会用到的公用方法，用Mixins可以减少代码量，实现代码重用。</li>
+        </ul>
+        <hr>
+        <h4>Mixins的基本用法</h4>
+        <p>我们现在有个数字点击递增的程序，假设已经完成了，这时我们希望每次数据变化时都能够在控制台打印出提示：“数据发生变化”.</p>
+        <p>实现过程：</p>
+        <img src="../../images/mixins_01.png" alt="">
+
+        <div>示例：
+            <p>{{num}}</p>
+            <p><button @click="add">add</button></p>
+        </div>
+        <hr>
+        <h4>Mixins 的调用顺序</h4>
+        <p>从执行的先后顺序来说，都是混入的先执行，然后构造器里的再执行，需要注意的是，这并不是方法的覆盖，而是被执行了两遍。
+            在上边的代码的构造器里我们也加入了updated的钩子函数</p>
+        <img src="../../images/mixins_02.png" alt="">
+        <p>点击上方例子按钮此时控制台的输出顺序是：</p>
+        <img src="../../images/mixins_03.png" alt="">
+        <p>PS：当混入方法和构造器的方法重名时，混入的方法无法展现，也就是不起作用。</p>
+        <hr>
+        <h4>全局API混入方式</h4>
+        <p>我们也可以定义全局的混入，这样在需要这段代码的地方直接引入js，就可以拥有这个功能了。我们来看一下全局混入的方法：</p>
+        <img src="../../images/mixins_04.png" alt="">
+        <p>PS: 全局混入的执行顺序要优先于混入和构造器里的方法。</p>
+    </div>
+
+    <script type="text/javascript">
+        //全局混入
+        Vue.mixin({
+            created:function(){
+                console.log('我是全局被混入的');
+            }
+        });
+        //额外临时加入时，用于显示日志
+        var addLog={
+            updated:function(){
+                console.log("数据发生变化,变化成"+this.num+".");
+            }
+        };
+        var app=new Vue({
+            el:'#app',
+            data:{
+                num:6
+            },
+            methods:{
+                add:function () {
+                    this.num++;
+                }
+            },
+            created:function(){
+                console.log('我是原生的');
+            },
+            updated:function(){
+                console.log("构造器里的updated方法。");
+            },
+            mixins:[addLog]
+        });
+    </script>
+
+    <style>
+
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        img{
+            padding-left: 1rem;
+            width: 40%;
+            height: 30%;
+        }
+        div{
+            padding-left: 1rem;
+        }
+        span{
+            color:green;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>Watch 选项 监控数据 案例</title>
+</head>
+<body>
+    <div id="app">
+        <p>数据变化的监控经常使用，我们可以先来看一个简单的数据变化监控的例子。
+            例如天气预报的穿衣指数，它主要是根据温度来进行提示的，当然还有其它的，咱们就不考虑了。
+        </p>
+        <hr>
+        <h4>看一个监控变化的案例</h4>
+        <p>温度大于26度时，我们建议穿T恤短袖，温度小于26度大于0度时，我们建议穿夹克长裙，温度小于0度时我们建议穿棉衣羽绒服。</p>
+
+        <p>先来模拟一个温度变化的情况：我们使用按钮来加减温度。</p>
+        <div><img src="../../images/watch_01.png" alt=""></div>
+        <div><img src="../../images/watch_02.png" alt=""></div>
+        <div>
+            <p>示例： <span>当前的室外温度为：{{temperature}}℃      穿衣建议：{{suggestion}}</span></p>
+            <p>
+                <button @click="add(1)">升温</button>
+                <button @click="reduce(1)">降温</button>
+            </p>
+        </div>
+        <p>有些时候我们会用实例属性的形式来写watch监控。
+            也就是把我们watch写在构造器的外部，这样的好处就是降低我们程序的耦合度，使程序变的灵活。写法：app.$watch('xxx',function(){})
+        </p>
+        <img src="../../images/watch_03.png" alt="">
+        <div>
+            <p>示例： <span>当前的室外温度为：{{num}}℃      穿衣建议：{{show}}</span></p>
+            <p>
+                <button @click="add(2)">升温</button>
+                <button @click="reduce(2)">降温</button>
+            </p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        var app=new Vue({
+            el:'#app',
+            data:{
+                num:16,
+                show:'夹克长裙',
+                temperature:16,
+                suggestion:'夹克长裙',
+                suggestionarray:['T恤短袖','夹克长裙','棉衣羽绒服']
+            },
+            methods:{
+                add:function(type){
+                    if(type==1){
+                        this.temperature +=2;
+                    }else{
+                        this.num +=2;
+                    }
+
+                },
+                reduce:function(type){
+                    if(type==1){
+                        this.temperature -=2;
+                    }else{
+                        this.num -=2;
+                    }
+
+                }
+            },
+            watch:{
+                temperature:function (newValue) {
+                    if(newValue>=26){
+                        this.suggestion = this.suggestionarray[0];
+                    }else if(newValue>0 && newValue<26){
+                        this.suggestion = this.suggestionarray[1];
+                    }else{
+                        this.suggestion = this.suggestionarray[2];
+                    }
+                }
+            }
+        });
+
+        app.$watch('num',function(newVal){
+            if(newVal>=26){
+                this.show=this.suggestionarray[0];
+            }else if(newVal<26 && newVal >=0)
+            {
+                this.show=this.suggestionarray[1];
+            }else{
+                this.show=this.suggestionarray[2];
+            }
+
+        });
+
+    </script>
+
+    <style>
+
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        img{
+            padding-left: 1rem;
+            width: 40%;
+            height: 30%;
+        }
+        div{
+            padding-left: 1rem;
+        }
+        span{
+            color:green;
+        }
+    </style>
+</body>
+</html>

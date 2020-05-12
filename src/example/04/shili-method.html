@@ -3,42 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <script type="text/javascript" src="../../js/vue.js"></script>
-    <title>propsData Option  全局扩展的数据传递 案例</title>
+    <title>实例方法 案例</title>
 </head>
 <body>
     <div id="app">
-        <p>propsData 不是和属性有关，它用来全局拓展时进行数据传递</p>
+        <h4>$mount 方法</h4>
+            <p>$mount方法是用来挂载我们的扩展的，我们先来复习一下扩展的写法。</p>
+            <p>这里我们作了study的扩展，然后用$mount的方法把study挂载到DOM上，我们也生成了一个Vue的实例，直接看代码。</p>
+            <img src="../../images/shili-method_01.png" alt="">
+
+             <p><study></study></p>
         <hr>
-        <p>天我们来学习一下propsData，第二部分中我们学习了全局拓展与组件的相关知识，通过下面这个小例子顺带来复习一下。</p>
+        <h4>$destroy() 卸载方法</h4>
+            <p>用$destroy()进行卸载。</p>
+            <p><button onclick="destroy()">卸载</button></p>
+        <hr>
+        <h4>$forceUpdate 更新方法</h4>
+            <p>vm.$forceUpdate()</p>
+        <hr>
+        <h4>$nextTick 数据修改方法</h4>
+            <p>当Vue构造器里的data值被修改完成后会调用这个方法，也相当于一个钩子函数吧，和构造器里的updated生命周期很像。</p>
+            <img src="../../images/shili-method_02.png" alt="">
+            <p><button onclick="tick()">修改data</button></p>
 
-
-
-        <example></example>
-        <p>
-            扩展标签已经做好了，这时我们要在挂载时传递一个数字过去，我们就用到了propsData。
-            我们用propsData三步解决传值：
-            <ul>
-                <li>1.在全局扩展里加入props进行接收。propsData:{a:1}</li>
-                <li>2.传递时用propsData进行传递。props:[‘a’]</li>
-                <li>3.用插值的形式写入模板。{{ a }} </li>
-            </ul>
-        <img src="../../images/propsdata_01.png" alt="">
-        </p>
+        <hr>
+        <h4>安装Vue的浏览器控制台调试工具（Vue Devtools）</h4>
+            <p>自行网上搜索，这里就不赘述了。成功装好后，打开vuez写的页面图标会亮起来。控制台如下显示：</p>
+            <img src="../../images/shili-method_03.png" alt="">
     </div>
 
     <script type="text/javascript">
 
-        const example=Vue.extend({
-            template:`<div style="color:green"> 示例：{{message}}-----{{num}}</div>`,
+        function tick(){
+            vm.message="update message info ";
+            vm.$nextTick(function(){
+                console.log('message更新完后我被调用了');
+            })
+        }
+
+        function destroy(){
+            vm.$destroy();
+        }
+        const study=Vue.extend({
+            template: `<p>{{message}}</p>`,
             data:function () {
                 return {
-                    message:'this is a example adbout propsdata.'
+                    message:"hello,welcome! today, we are study together."
                 }
-            },
-            props:['num']
+            }
         });
 
-        new example({propsData:{num:666}}).$mount('example');
+        const vm = new study().$mount('study');
+
     </script>
 
     <style>
@@ -96,6 +112,9 @@
         }
         div{
             padding-left: 1rem;
+        }
+        span{
+            color:green;
         }
     </style>
 </body>

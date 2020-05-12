@@ -3,42 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <script type="text/javascript" src="../../js/vue.js"></script>
-    <title>propsData Option  全局扩展的数据传递 案例</title>
+    <title>delimiters 选项 案例</title>
 </head>
 <body>
     <div id="app">
-        <p>propsData 不是和属性有关，它用来全局拓展时进行数据传递</p>
-        <hr>
-        <p>天我们来学习一下propsData，第二部分中我们学习了全局拓展与组件的相关知识，通过下面这个小例子顺带来复习一下。</p>
-
-
-
-        <example></example>
-        <p>
-            扩展标签已经做好了，这时我们要在挂载时传递一个数字过去，我们就用到了propsData。
-            我们用propsData三步解决传值：
-            <ul>
-                <li>1.在全局扩展里加入props进行接收。propsData:{a:1}</li>
-                <li>2.传递时用propsData进行传递。props:[‘a’]</li>
-                <li>3.用插值的形式写入模板。{{ a }} </li>
-            </ul>
-        <img src="../../images/propsdata_01.png" alt="">
-        </p>
+        <h4>delimiters 选项</h4>
+        <p>delimiters的作用是改变我们插值的符号。Vue默认的插值是双大括号{{}}。但有时我们会有需求更改这个插值的形式。</p>
+        <img src="../../images/delimiters_01.png" alt="">
+        <p>现在我们的插值形式就变成了${}。</p>
     </div>
 
     <script type="text/javascript">
-
-        const example=Vue.extend({
-            template:`<div style="color:green"> 示例：{{message}}-----{{num}}</div>`,
-            data:function () {
-                return {
-                    message:'this is a example adbout propsdata.'
-                }
-            },
-            props:['num']
-        });
-
-        new example({propsData:{num:666}}).$mount('example');
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message: 'hello Vue!'
+            }
+        })
     </script>
 
     <style>
@@ -96,6 +77,9 @@
         }
         div{
             padding-left: 1rem;
+        }
+        span{
+            color:green;
         }
     </style>
 </body>
