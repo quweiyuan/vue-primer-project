@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script type="text/javascript" src="./js/vue.js"></script>
     <title>Vue 入门学习</title>
 </head>
 <body>
-
-
         <h1>Vue.js 学习 </h1>
         <hr>
         <div id="command">
@@ -72,7 +71,36 @@
                 <li><a href="example/04/shili-incident.html">实例事件</a></li>
                 <li><a href="example/04/slot.html">内置组件 -slot</a></li>
             </ul>
+
+
+            <hr>
+            <h3>第五部分：Vue-router</h3>
+            <p>简介： 由于Vue在开发时对路由支持的不足，后来官方补充了vue-router插件，它在Vue的生态环境中非常重要，
+                在实际开发中只要编写一个页面就会操作vue-router。要学习vue-router就要先知道这里的路由是什么？
+                这里的路由并不是指我们平时所说的硬件路由器，这里的路由就是SPA（单页应用）的路径管理器。
+                再通俗的说，vue-router就是我们WebApp的链接路径管理系统。
+            </p>
+            <p>{{router_text}}</p>
+            <ul>
+                <li><a href="example/04/shili.html">实例属性</a></li>
+                <li><a href="example/04/shili-method.html">实例方法</a></li>
+                <li><a href="example/04/shili-incident.html">实例事件</a></li>
+                <li><a href="example/04/slot.html">内置组件 -slot</a></li>
+            </ul>
         </div>
+
+        <script type="text/javascript">
+
+            const app = new Vue({
+                el : '#command',
+                data: {
+                    router_text: `有的小伙伴会有疑虑，为什么我们不能像原来一样直接用<a></a>标签编写链接哪？
+                                    因为我们用Vue作的都是单页应用，就相当于只有一个主的index.html页面，
+                                    所以你写的<a></a>标签是不起作用的，你必须使用vue-router来进行管理。`
+                }
+            });
+
+        </script>
 
         <style>
 
