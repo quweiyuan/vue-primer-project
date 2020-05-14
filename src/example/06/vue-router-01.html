@@ -34,6 +34,20 @@
             为了方便小伙伴查看，贴出现在的路由配置文件:
         </p>
         <img src="../../images/vue-router_06.png" alt="">
+        <hr>
+        <h4>router-link制作导航</h4>
+        <p>现在通过在地址栏改变字符串地址，已经可以实现页面内容的变化了。这并不满足需求，我们需要的是在页面上有个像样的导航链接，
+            我们只要点击就可以实现页面内容的变化。制作链接需要router-link标签，我们先来看一下它的语法。
+        </p>
+        <div><span> {{message01}}</span></div>
+        <ul>
+            <li>to：是我们的导航路径，要填写的是你在router/index.js文件里配置的path值，如果要导航到默认首页，只需要写成 to=”/”</li>
+            <li>[显示字段] ：就是我们要显示给用户的导航名称，比如首页 新闻页。</li>
+        </ul>
+        <p>明白了router-link的基本语法，我们在 src/App.vue文件中的template里加入下面代码，实现导航。</p>
+        <img src="../../images/vue-router_07.png" alt="">
+        <p>现在我们访问页面，发现已经多出了导航。</p>
+        <img src="../../images/vue-router_08.png" alt="">
 
 
     </div>
@@ -42,7 +56,7 @@
         var app=new Vue({
             el:'#app',
             data:{
-                message: 'hello Vue!'
+                message01: '<router-link to="/">[显示字段]</router-link>'
             }
         })
     </script>
@@ -104,7 +118,21 @@
             padding-left: 1rem;
         }
         span{
-            color:green;
+            color: powderblue;
+            line-height: 1.9rem;
+            padding: .5rem !important;
+            font-weight: 300;
+            border-radius: .3rem;
+            border: 0px !important;
+            background-color: #283646 !important;
+            border-radius: 3px;
+            line-height: 1.1rem;
+            font-size: .87rem;
+            width: 800px;
+            height: 50px;
+            display: table-cell;
+            vertical-align:middle;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
         }
     </style>
 </body>

@@ -3,11 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <script type="text/javascript" src="../../js/vue.js"></script>
-    <title>helloworld</title>
+    <title>router配置子路由 案例</title>
 </head>
 <body>
     <div id="app">
-        {{message}}
+        <p>前面我们初步了解Vue-router的初步知识，也学会了基本的跳转，那我们这节课学习一下子菜单的路由方式，也叫子路由。
+            子路由的情况一般用在一个页面有他的基础模版，然后它下面的页面都隶属于这个模版，只是部分改变样式。
+            我们接着第一节课的实例，在Hi页面的下面新建两个子页面，分别是 “Hi页面1” 和 “Hi页面2”，来实现子路由。
+        </p>
+        <hr>
+        <h4>新增两个子页面</h4>
+        <div><b>** App.vue代码**</b></div>
+        <img src="../../images/vue-router_09.png" alt="">
+        
+        <p>把Hi.vue改成一个通用的模板，加入router-view标签，给子模板提供插入位置。
+            “Hi页面1” 和 “Hi页面2” 都相当于“Hi页面”的子页面，有点像继承关系。
+        </p>
+        <div><b>components/Hi.vue</b></div>
+        <img src="../../images/vue-router_10.png" alt="">
+        <p>新建两个组件模板</p>
+        <div><b>Hi1.vue</b></div>
+        <img src="../../images/vue-router_11.png" alt="">
+        <div><b>Hi2.vue</b></div>
+        <img src="../../images/vue-router_12.png" alt="">
+        <div><b>修改router/index.js代码</b></div>
+        <div><span>children:[<br>
+                    {path:'/',component:xxx},<br>
+                    {path:'xx',component:xxx},<br>
+                ]
+            </span>
+        </div>
+        <p>children字段后边跟的是个数组，数组里和其他配置路由基本相同，需要配置path和component。
+            具体看一下这个子路由的配置写法。</p>
+        <img src="../../images/vue-router_13.png" alt="">
+
+        <p>效果图:</p>
+        <img src="../../images/vue-router_14.png" alt="">
+
+        <p>总结：这节学的内容在路由配置里经常用到，比如我们作一个购物模块，购物模块里有很多相同的元素，
+            我们就会利用这种子路由的形式，先定一个父页面，然后再修改子页面。其实子路由的步骤还是有些繁琐的，
+            多练习几遍，能够完全掌握。</p>
     </div>
 
     <script type="text/javascript">
@@ -76,7 +111,21 @@
             padding-left: 1rem;
         }
         span{
-            color:green;
+            color: powderblue;
+            line-height: 1.9rem;
+            padding: .5rem !important;
+            font-weight: 300;
+            border-radius: .3rem;
+            border: 0px !important;
+            background-color: #283646 !important;
+            border-radius: 3px;
+            line-height: 1.1rem;
+            font-size: .87rem;
+            width: 800px;
+            height: 50px;
+            display: table-cell;
+            vertical-align:middle;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
         }
     </style>
 </body>
