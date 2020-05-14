@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>vue-cli 模板学习 案例</title>
+</head>
+<body>
+    <div id="app">
+        <p>通过以上两小章的学习，我们对vue-cli有了基本的了解，这节我们主要了解一下Vue-cli的模板操作，
+            包括增加模板，修改模板，以及一个常规模板的基本结构。
+        </p>
+        <hr>
+        <h4>npm run build 命令</h4>
+        <p>
+            首先我们来提一下，如何把写好的Vue网页放到服务器上，那我就在这里讲解一下，主要的命令就是要用到npm run build 命令。
+            我们在命令行中输入npm run build命令后，vue-cli会自动进行项目发布打包。你在package.json文件的scripts字段中可以看出，
+            你执行的npm run build命令就相对执行的 node build/build.js 。
+        </p>
+        <p>package.json的scripts 字段：</p>
+        <img src="../../images/vue-cli_04.png" alt="">
+        <p>在执行完npm run build命令后，在你的项目根目录生成了dist文件夹，这个文件夹里边就是我们要传到服务器上的文件。
+            dist文件夹下目录包括：
+            <ul>
+                <li>index.html主页文件:因为我们开发的是单页web应用，所以说一般只有一个html文件。</li>
+                <li>static 静态资源文件夹：里边js、CSS和一些图片。</li>
+            </ul>
+        </p>
+        <hr>
+        <h4>main.js 文件解读</h4>
+        <p>main.js是整个项目的入口文件,在src文件夹下：</p>
+        <img src="../../images/vue-cli_09.png" alt="">
+        <p>通过代码可以看出这里引进了App的组件和的模板，它是通过 import App from ‘./App’这句代码引入的。
+            我们找到App.vue文件，打开查看。
+        </p>
+        <hr>
+        <h4>App.vue文件</h4>
+        <img src="../../images/app_vue.png" alt="">
+        <p>app.vue文件我们可以分成三部分解读:</p>
+        <ul>
+            <li>{{app_vue01}}</li>
+            <li>{{app_vue02}}</li>
+            <li>{{app_vue03}}</li>
+        </ul>
+
+        <hr>
+        <h4>router/index.js 路由文件</h4>
+        <p>在app.vue中我们看到了路由文件，虽然router的内容比较多，但是我们先简单的看一下。后面我们就开始讲Vue-router。</p>
+        <img src="../../images/router-index.png" alt="">
+        <p>我们可以看到 import Hello from ‘@/components/Hello’这句话， 文件引入了/components/Hello.vue文件。
+            这个文件里就配置了一个路由，就是当我们访问网站时给我们显示Hello.vue的内容。</p>
+
+        <hr>
+        <h4>hello.vue 文件解读</h4>
+        <p>这个文件就是我们在第一节课看到的页面文件了。也是分为template、script、style三个部分，
+            以后我们大部分的工作都是写这些.vue结尾的文件。现在我们可以试着改一些内容，然后预览一下。
+        </p>
+        <img src="../../images/hello_vue.png" alt="">
+    </div>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                app_vue01: `<template></template>标签包裹的内容：这是模板的HTMLDom结构，里边引入了一张图片和<router-view></router-view>标签，
+                            <router-view>标签说明使用了路由机制。我们会在以后专门拿出一篇文章讲Vue-router。`,
+                app_vue02: 'script标签包括的js内容：你可以在这里些一些页面的动态效果和Vue的逻辑代码。',
+                app_vue03: `<style></style>标签包裹的css内容：这里就是你平时写的CSS样式，对页面样子进行装饰用的，
+                            需要特别说明的是你可以用<style scoped></style>来声明这些css样式只在本模板中起作用。`
+
+            }
+        })
+    </script>
+
+    <style>
+
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        img{
+            padding-left: 1rem;
+            width: 40%;
+            height: 30%;
+        }
+        div{
+            padding-left: 1rem;
+        }
+        span{
+            color: powderblue;
+            line-height: 1.9rem;
+            padding: .5rem !important;
+            font-weight: 300;
+            border-radius: .3rem;
+            border: 0px !important;
+            background-color: #283646 !important;
+            border-radius: 3px;
+            line-height: 1.1rem;
+            font-size: .87rem;
+            width: 800px;
+            height: 50px;
+            display: table-cell;
+            vertical-align:middle;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+        }
+    </style>
+</body>
+</html>

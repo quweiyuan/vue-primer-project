@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>vue-cli 结构学习 案例</title>
+</head>
+<body>
+    <div id="app">
+        <p>vue-cli脚手架工具就是为我们搭建了开发所需要的环境，为我们省去了很多精力。有必要对这个环境进行熟悉，我们就从项目的结构讲起。</p>
+        <div><img src="../../images/vue-cli_03.png" alt=""></div>
+        <p>重要文件讲解：</p>
+        <p><b>package.json</b> <br>package.json文件是项目根目录下的一个文件，定义该项目开发所需要的各种模块以及一些项目配置信息（如项目名称、版本、
+            描述、作者等）。 package.json 里的scripts字段，这个字段定义了你可以用npm运行的命令。在开发环境下，
+            在命令行工具中运行npm run dev 就相当于执行 node build/dev-server.js .也就是开启了一个node写的开发行建议服务器。
+            由此可以看出script字段是用来指定npm相关命令的缩写。
+        </p>
+        <div><img src="../../images/vue-cli_04.png" alt=""></div>
+        <p>dependencies字段和devDependencies字段</p>
+            <ul>
+                <li>dependencies字段指项目运行时所依赖的模块；</li>
+                <li>devDependencies字段指定了项目开发时所依赖的模块；</li>
+            </ul>
+        <p>在命令行中运行npm install命令，会自动安装dependencies和devDempendencies字段中的模块。
+            package.json还有很多相关配置，如果想全面了解，可以专门去网上搜索学习一下。
+        </p>
+        <hr>
+        <h4>webpack 配置相关</h4>
+        <p>我们在上面说了运行npm run dev 就相当于执行了node build/dev-server.js,说明这个文件相当重要，先来熟悉一下它。
+            我贴出代码并给出重要的解释。
+        </p>
+        <div><b>dev-server.js</b></div>
+        <img src="../../images/vue-cli_05.png" alt="">
+        <div><b>webpack.base.confg.js</b>   webpack的基础配置文件</div>
+        <img src="../../images/vue-cli_06.png" alt="">
+        <hr>
+        <h4>.babelrc</h4>
+        <p>Babel解释器的配置文件，存放在根目录下。Babel是一个转码器，项目里需要用它将ES6代码转为ES5代码。
+            如果你想了解更多，可以查看babel的知识。
+        </p>
+        <img src="../../images/vue-cli_07.png" alt="">
+
+        <hr>
+        <h4>.editorconfig</h4>
+        <p>该文件定义项目的编码规范，编译器的行为会与.editorconfig文件中定义的一致，并且其优先级比编译器自身的设置要高，
+            这在多人合作开发项目时十分有用而且必要。
+        </p>
+        <img src="../../images/vue-cli_08.png" alt="">
+        <p>以上是比较重要的关于vue-cli的配置文件，当然还有很多文件，我们会在以后慢慢接触到...</p>
+    </div>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message: 'hello Vue!'
+            }
+        })
+    </script>
+
+    <style>
+
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        img{
+            padding-left: 1rem;
+            width: 40%;
+            height: 30%;
+        }
+        div{
+            padding-left: 1rem;
+        }
+        span{
+            color: powderblue;
+            line-height: 1.9rem;
+            padding: .5rem !important;
+            font-weight: 300;
+            border-radius: .3rem;
+            border: 0px !important;
+            background-color: #283646 !important;
+            border-radius: 3px;
+            line-height: 1.1rem;
+            font-size: .87rem;
+            width: 800px;
+            height: 50px;
+            display: table-cell;
+            vertical-align:middle;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>vue-cli 入门 案例</title>
+</head>
+<body>
+    <div id="app">
+        <h4>安装 vue-cli</h4>
+        <p>安装vue-cli的前提是你已经安装了npm，安装npm你可以直接下载node的安装包进行安装。
+            你可以在命令行工具里输入npm -v 检测你是否安装了npm和版本情况。出现版本号说明你已经安装了npm和node，
+            我这里的npm版本为6.13.4。如果该命令不可以使用，需要安装node软件包，根据你的系统版本选择下载安装就可以了。
+            下载地址：<a href="http://nodejs.cn/download/">nodejs官网</a> 安装方法自行网上搜索</p>
+        <p>npm没有问题，接下来我们可以用npm 命令安装vue-cli了，在命令行输入下面的命令：</p>
+        <p><span>npm install vue-cli -g</span></p>
+
+        <p>
+            <ul>
+                <li>-g : 代表全局安装。如果你安装时报错，一般是网络问题，你可以尝试用cnpm来进行安装。安装完成后，可以用vue</li>
+                <li>-V : 来进行查看 vue-cli的版本号。注意这里的V是大写的。我这里版本号是2.9.6.</li>
+            </ul>
+                <div>如果vue -V的命令管用了，说明已经顺利的把vue-cli安装到我们的计算机里了。</div>
+        </p>
+
+        <hr>
+        <h4>初始化项目</h4>
+        <p>我们用vue init命令来初始化项目，具体看一下这条命令的使用方法。</p>
+        <p><span>{{message}}</span></p>
+            <ul>
+                <li>init：表示我要用vue-cli来初始化项目</li>
+                <li>{{message02}}
+                    <ul>
+                        <li>webpack: 一个全面的webpack+vue-loader的模板，功能包括热加载，linting,检测和CSS扩展。</li>
+                        <li>webpack-simple: 一个简单webpack+vue-loader的模板，不包含其他功能，让你快速的搭建vue的开发环境。</li>
+                        <li>browserify: 一个全面的Browserify+vueify 的模板，功能包括热加载，linting,单元检测。</li>
+                        <li>browserify-simple: 一个简单Browserify+vueify的模板，不包含其他功能，让你快速的搭建vue的开发环境。</li>
+                    </ul>
+                        <div>-simple: 一个最简单的单页应用模板。</div>
+                </li>
+                <li>{{message03}}</li>
+            </ul>
+        <p>在实际开发中，一般我们都会使用webpack这个模板，那我们这里也安装这个模板，在命令行输入以下命令：</p>
+        <p><span>vue init webpack vuecliTest</span></p>
+        <p>输入命令后，会询问我们几个简单的选项，我们根据自己的需要进行填写就可以了。</p>
+            <ul>
+                <li>Project name :项目名称 ，如果不需要更改直接回车就可以了。注意：这里不能使用大写，所以我把名称改成了vueclitest</li>
+                <li>Project description:项目描述，默认为A Vue.js project,直接回车，不用编写。</li>
+                <li>Author：作者，如果你有配置git的作者，他会读取。</li>
+                <li>Install vue-router? 是否安装vue的路由插件，我们这里需要安装，所以选择Y</li>
+                <li>Use ESLint to lint your code? 是否用ESLint来限制你的代码错误和风格。我们这里不需要输入n，如果你是大型团队开发，最好是进行配置。</li>
+                <li>setup unit tests with Karma + Mocha? 是否需要安装单元测试工具Karma+Mocha，我们这里不需要，所以输入n。</li>
+                <li>Setup e2e tests with Nightwatch?是否安装e2e来进行用户行为模拟测试，我们这里不需要，所以输入n。</li>
+            </ul>
+
+        <div><img src="../../images/vue-cli_01.png" alt=""></div>
+        <p>命令行出现上面的文字，说明我们已经初始化好了第一步。命令行提示我们现在可以作的三件事情。</p>
+        <ul>
+            <li>cd vuecliTest 进入我们的vue项目目录。</li>
+            <li>npm install 安装我们的项目依赖包，也就是安装package.json里的包，如果你网速不好，你也可以使用cnpm来安装。</li>
+            <li>npm run dev 开发模式下运行我们的程序。给我们自动构建了开发用的服务器环境和在浏览器中打开，并实时监视我们的代码更改，即时呈现给我们。</li>
+        </ul>
+        <p>依次进行以上操作，最终出现访问地址，可以成功访问我们的项目地址了。</p>
+        <div><img src="../../images/vue-cli_02.png" alt=""></div>
+    </div>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message: '$ vue init <template-name> <project-name>',
+                message02: '<template-name>：表示模板名称，vue-cli官方为我们提供了5种模板',
+                message03: '<project-name>：标识项目名称，这个你可以根据自己的项目来起名字。'
+            }
+        })
+    </script>
+
+    <style>
+
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        img{
+            padding-left: 1rem;
+            width: 40%;
+            height: 30%;
+        }
+        div{
+            padding-left: 1rem;
+        }
+        span{
+            color: powderblue;
+            line-height: 1.9rem;
+            padding: .5rem !important;
+            font-weight: 300;
+            border-radius: .3rem;
+            border: 0px !important;
+            background-color: #283646 !important;
+            border-radius: 3px;
+            line-height: 1.1rem;
+            font-size: .87rem;
+            width: 800px;
+            height: 50px;
+            display: table-cell;
+            vertical-align:middle;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+        }
+    </style>
+</body>
+</html>
