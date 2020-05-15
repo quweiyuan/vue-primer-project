@@ -3,18 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <script type="text/javascript" src="../../js/vue.js"></script>
-    <title></title>
+    <title>vue-router 如何进行参数传递 案例</title>
 </head>
 <body>
     <div id="app">
-        {{message}}
+        <p>开发中，参数的传递是个最基本的业务需求。通过URL地址来传递参数是一个形式，
+            这节课我们就看看vue-router为我们提供了哪些传递参数的功能。
+            我们先想象一个基本需求，就是在我们点击导航菜单时，跳转页面上能显示出当前页面的路径，
+            来告诉用户你想在所看的页面位置（类似于面包屑导航）。
+        </p>
+        <hr>
+        <h4>用name传递参数</h4>
+        <p>上一节中一直出现name的选项，但是我们都没有讲，这节我们来讲name的一种作用，传递参数。
+            接着上节课的程序继续编写。 两步完成用name传值并显示在模板里：
+        </p>
+        <ul>
+            <li>在路由文件src/router/index.js里配置name属性。</li>
+            <img src="../../images/vue-router_15.png" alt="">
+            <li>模板里(src/App.vue)用$route.name的形势接收，比如直接在模板中显示：</li>
+            <img src="../../images/vue-router_16.png" alt="">
+            <p>效果如图：</p>
+            <img src="../../images/vue-router_17.png" alt="">
+        </ul>
+        <hr>
+        <h4>通过 router-link 标签中的to传参</h4>
+        <p>也许你也会觉的上边的传参很不正规，也不方便，其实我们多数传参是不用name进行传参的，
+            我们用router-link标签中的to属性进行传参，需要注意的是这里的to要进行一个绑定，写成:to。
+            先来看一下这种传参方法的基本语法：
+        </p>
+        <div><span>{{message}}</span></div>
+        <p>这里的to前边是带冒号的，然后后边跟的是一个对象形势的字符串.</p>
+        <ul>
+            <li>name：就是我们在路由配置文件中起的name值。</li>
+            <li>params：就是我们要传的参数，它也是对象形式，在对象里可以传递多个值。</li>
+        </ul>
+        <p>了解基本的语法后，我们改造一下我们的src/App.vue里的 router-link 标签,我们把hi1页面的 router-link 进行修改。</p>
+        <div><span>{{message02}}</span></div>
+        <p>再在模板里(src/components/Hi1.vue)用$route.params.username进行接收.</p>
+        <div><span>{{message03}}</span></div>
+        <p>效果如图：</p>
+        <img src="../../images/vue-router_18.png" alt="">
+        <p>总结：这节我们学习了两种传参的方法，一般会使用第二种方法。我们通过学习也知道了name的用途，一种作用是传参，
+            一种作用是在传参时起到名称作用。传参的操作在实际开发中是基本的需求，一定要掌握好。</p>
     </div>
 
     <script type="text/javascript">
         var app=new Vue({
             el:'#app',
             data:{
-                message: 'hello Vue!'
+                message: '<router-link :to="{name:xxx,params:{key:value}}">valueString</router-link>',
+                message02: ' <router-link :to="{name:\'hi1\',params:{username:\'yyp\'}}">Hi页面1</router-link>',
+                message03: ' {{$route.params.username}}'
             }
         })
     </script>

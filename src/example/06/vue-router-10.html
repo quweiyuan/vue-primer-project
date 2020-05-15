@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>vue-router 路由中的钩子 案例</title>
+</head>
+<body>
+    <div id="app">
+        <p>我们知道一个组件从进入到销毁有很多的钩子函数，同样在路由中也设置了钩子函数。路由的钩子选项可以写在路由配置文件中，
+            也可以写在我们的组件模板中。我们这一小节，就来学习这两种钩子函数的写法。
+        </p>
+        <hr>
+        <h4>路由配置文件中的钩子函数</h4>
+        <p>我们可以直接在路由配置文件（/src/router/index.js）中写钩子函数。但是在路由文件中我们只能写一个beforeEnter,
+            就是在进入此路由配置时。先来看一段具体的代码：
+        </p>
+        <div>
+            <span>
+                {<br>
+                      path:'/params/:newsId(\\d+)/:newsTitle',<br>
+                      component:Params,<br>
+                      beforeEnter:(to,from,next)=>{<br>
+                        console.log('我进入了params模板');<br>
+                        console.log(to);<br>
+                        console.log(from);<br>
+                        next();<br>
+                }
+            </span>
+        </div>
+        <p>我们在params路由里配置了bdforeEnter得钩子函数，函数我们采用了ES6的箭头函数，需要传递三个参数。
+            我们并在箭头函数中打印了to和from函数。具体打印内容可以在控制台查看object。</p>
+
+            <div>三个参数：</div>
+            <ul>
+                <li>to: 路由将要跳转的路径信息，信息是包含在对象里边的。</li>
+                <li>from: 路径跳转前的路径信息，也是一个对象的形式。</li>
+                <li>next: 路由的控制参数，常用的有next(true)和next(false)。</li>
+            </ul>
+        <hr>
+        <h4>写在模板中的钩子函数 </h4>
+        <p>在配置文件中的钩子函数，只有一个钩子 beforeEnter，如果我们写在模板中就可以有两个钩子函数可以使用：</p>
+        <ul>
+            <li>beforeRouteEnter：在路由进入前的钩子函数。</li>
+            <li>beforeRouteLeave：在路由离开前的钩子函数。</li>
+        </ul>
+        <img src="../../images/vue-router_27.png" alt="">
+        <p>这是我们写在params.vue模板里的路由钩子函数。它可以监控到路由的进入和路由的离开，也可以轻易的读出to和from的值。</p>
+
+    </div>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message: 'hello Vue!'
+            }
+        })
+    </script>
+
+    <style>
+
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        img{
+            padding-left: 1rem;
+            width: 40%;
+            height: 30%;
+        }
+        div{
+            padding-left: 1rem;
+        }
+        span{
+            color: powderblue;
+            line-height: 1.9rem;
+            padding: .5rem !important;
+            font-weight: 300;
+            border-radius: .3rem;
+            border: 0px !important;
+            background-color: #283646 !important;
+            border-radius: 3px;
+            line-height: 1.1rem;
+            font-size: .87rem;
+            width: 800px;
+            height: 50px;
+            display: table-cell;
+            vertical-align:middle;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+        }
+    </style>
+</body>
+</html>

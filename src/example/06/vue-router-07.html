@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>vue-router alias别名的使用 案例</title>
+</head>
+<body>
+    <div id="app">
+       <p>上节学习了路由的重定向，我相信大家已经可以熟练使用redirect进行重定向了。使用alias别名的形式，我们也可以实现类似重定向的效果。</p>
+        <ul>
+            <li>首先我们在路由配置文件里（/src/router/index.js），给 Hi1 页面路径起一个别名--home。</li>
+            <div>
+                <span>
+                    {<br>
+                        path: '/hi1',<br>
+                        component: Hi1,<br>
+                        alias:'/home' <br>
+                    }
+                </span>
+            </div>
+            <li>配置我们的 router-link，起过别名之后，可以直接使用 router-link 标签里的to属性，进行重新定向。</li>
+            <div>
+                <span>{{message}}</span>
+            </div>
+        </ul>
+        <p>效果如图：</p>
+        <img src="../../images/vue-router_24.png" alt="">
+        <hr>
+        <h4>redirect和alias的区别</h4>
+        <ul>
+            <li>redirect：仔细观察URL，redirect是直接改变了url的值，把url变成了真实的path路径。</li>
+            <li>alias：URL路径没有别改变，这种情况更友好，让用户知道自己访问的路径，只是改变了 router-view 中的内容。</li>
+        </ul>
+       <!-- <hr>
+        <h4>特别提示</h4>
+        <p>别名请不要用在path为’/’中，如下代码的别名是不起作用的。</p>
+        <div>
+            <span>
+                {<br>
+                    path: '/',<br>
+                    component: Hello,<br>
+                    alias:'/home'<br>
+                }
+            </span>
+        </div>-->
+
+    </div>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message: '<router-link < to="/home">Home</router-link>'
+            }
+        })
+    </script>
+
+    <style>
+
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        img{
+            padding-left: 1rem;
+            width: 40%;
+            height: 30%;
+        }
+        div{
+            padding-left: 1rem;
+        }
+        span{
+            color: powderblue;
+            line-height: 1.9rem;
+            padding: .5rem !important;
+            font-weight: 300;
+            border-radius: .3rem;
+            border: 0px !important;
+            background-color: #283646 !important;
+            border-radius: 3px;
+            line-height: 1.1rem;
+            font-size: .87rem;
+            width: 800px;
+            height: 50px;
+            display: table-cell;
+            vertical-align:middle;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+        }
+    </style>
+</body>
+</html>

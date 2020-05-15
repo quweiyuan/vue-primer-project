@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>vue-router 路由的过渡动画 案例</title>
+</head>
+<body>
+    <div id="app">
+        <p>在开发中有一种需求叫高端、大气、上档次。所以作为一个前端有责任让你的程序看起来更酷炫。
+            可以在页面切换时我们加入一些动画效果，提升我们程序的动效设计。这一节我们就来学习一下路由的过渡动画效果制作。
+        </p>
+        <hr>
+        <h4>transition 标签</h4>
+        <p>想让路由有过渡动画，需要在 router-view 标签的外部添加 transition 标签，标签还需要一个name属性。</p>
+        <div>
+            <span>
+                {{message01}}<br>
+                {{message02}}<br>
+                {{message03}}
+            </span>
+        </div>
+        <p>我们在/src/App.vue文件里添加了 transition 标签，并给标签起了一个名字叫fade。</p>
+
+        <div><b>css过渡类名</b></div>
+        <p>组件过渡过程中，会有四个CSS类名进行切换，这四个类名与transition的name属性有关，比如name=”fade”,会有如下四个CSS类名：</p>
+        <ul>
+            <li>fade-enter:进入过渡的开始状态，元素被插入时生效，只应用一帧后立刻删除。</li>
+            <li>fade-enter-active:进入过渡的结束状态，元素被插入时就生效，在过渡过程完成后移除。</li>
+            <li>fade-leave:离开过渡的开始状态，元素被删除时触发，只应用一帧后立刻删除。</li>
+            <li>fade-leave-active:离开过渡的结束状态，元素被删除时生效，离开过渡完成后被删除。</li>
+        </ul>
+
+        <p>从上面四个类名可以看出，fade-enter-active和fade-leave-active在整个进入或离开过程中都有效，
+            所以CSS的transition属性在这两个类下进行设置。那我们就在App.vue页面里加入四种CSS样式效果，
+            并利用CSS3的transition属性控制动画的具体效果。代码如下：
+        </p>
+        <div>
+            <span>
+                .fade-enter {<br>
+                            opacity:0;<br>
+                }<br>
+                .fade-leave{<br>
+                  opacity:1;<br>
+                }<br>
+                .fade-enter-active{<br>
+                  transition:opacity .5s;<br>
+                }<br>
+                .fade-leave-active{<br>
+                  opacity:0;<br>
+                  transition:opacity .5s;<br>
+                }
+            </span>
+        </div>
+        <p>上边的代码设置了改变透明度的动画过渡效果，但是默认的mode模式in-out模式，这并不是我们想要的。下面我们学一下mode模式。</p>
+        <hr>
+        <h4>过渡模式mode：</h4>
+        <ul>
+            <li>in-out:新元素先进入过渡，完成之后当前元素过渡离开。</li>
+            <li>out-in:当前元素先进行过渡离开，离开完成后新元素过渡进入。</li>
+        </ul>
+
+
+
+    </div>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message01: '<transition name="fade">',
+                message02: '<router-view ></router-view>',
+                message03: '</transition>',
+            }
+        })
+    </script>
+
+    <style>
+
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        img{
+            padding-left: 1rem;
+            width: 40%;
+            height: 30%;
+        }
+        div{
+            padding-left: 1rem;
+        }
+        span{
+            color: powderblue;
+            line-height: 1.9rem;
+            padding: .5rem !important;
+            font-weight: 300;
+            border-radius: .3rem;
+            border: 0px !important;
+            background-color: #283646 !important;
+            border-radius: 3px;
+            line-height: 1.1rem;
+            font-size: .87rem;
+            width: 800px;
+            height: 50px;
+            display: table-cell;
+            vertical-align:middle;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+        }
+    </style>
+</body>
+</html>

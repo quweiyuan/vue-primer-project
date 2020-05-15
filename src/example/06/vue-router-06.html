@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>vue-router 的重定向-redirect 案例</title>
+</head>
+<body>
+    <div id="app">
+        <p>开发中有时候我们虽然设置的路径不一致，但是我们希望跳转到同一个页面，或者说是打开同一个组件。
+            这时候我们就用到了路由的重新定向redirect参数。
+        </p>
+        <hr>
+        <h4>redirect基本重定向</h4>
+        <p>我们只要在路由配置文件中（/src/router/index.js）把原来的component换成redirect参数就可以了。我们来看一个简单的配置。</p>
+        <div>
+            <span>
+                {<br>
+                    path: '/goback',<br>
+                    redirect: '/'<br>
+                }
+            </span>
+        </div>
+        <p>然后在app.vue中加一个导航菜单</p>
+        <div>
+            <span>{{message}}</span>
+        </div>
+        <p>点击Go Back 我们就可以实现重定向了。这里我们设置了goback路由，但是它并没有配置任何component（组件），
+            而是直接redirect到path:’/’下了，这就是一个简单的重新定向。
+        </p>
+        <hr>
+        <h4>重定向时传递参数</h4>
+        <p>我们已经学习过了通过url来传递参数，那我们重定向时如果也需要传递参数怎么办？其实vue也已经为我们设置好了，
+            我们只需要在ridirect后边的参数里复制重定向路径的path参数就可以了。可能你看的有点晕，我们来看一段代码：
+        </p>
+        <div>
+            <span>
+                {<br>
+                    path:'/params/:newsId(\\d+)/:newsTitle',<br>
+                    component:Params <br>
+                },{<br>
+                    path:'/goParams/:newsId(\\d+)/:newsTitle',<br>
+                    redirect:'/params/:newsId(\\d+)/:newsTitle'<br>
+                }
+            </span>
+        </div>
+
+        <p>已经有了一个params路由配置，我们再设置一个goParams的路由重定向，并传递了参数。
+            这时候我们的路由参数就可以传递给params.vue组件了。 参数接收方法和正常的路由接收方法一样。接下来我们在app.vue
+            中添加一个导航菜单来测试一下
+        </p>
+        <div>
+            <span>{{message01}}</span>
+        </div>
+        <p>实现效果如图：</p>
+        <img src="../../images/vue-router_23.png" alt="">
+
+
+    </div>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message: ' <router-link to="/goback">Go Back</router-link>',
+                message01: '<router-link to="/goParams/196/the News is wonderful, today.">Go Params</router-link>'
+            }
+        })
+    </script>
+
+    <style>
+
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        img{
+            padding-left: 1rem;
+            width: 40%;
+            height: 30%;
+        }
+        div{
+            padding-left: 1rem;
+        }
+        span{
+            color: powderblue;
+            line-height: 1.9rem;
+            padding: .5rem !important;
+            font-weight: 300;
+            border-radius: .3rem;
+            border: 0px !important;
+            background-color: #283646 !important;
+            border-radius: 3px;
+            line-height: 1.1rem;
+            font-size: .87rem;
+            width: 800px;
+            height: 50px;
+            display: table-cell;
+            vertical-align:middle;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+        }
+    </style>
+</body>
+</html>

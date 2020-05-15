@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>vue-router 利用url传递参数 案例</title>
+</head>
+<body>
+    <div id="app">
+        <p>我们在第3小节虽然已经学会传递参数，但是我们的情怀还是利用url来传值，因为我们以前在前后端没有分开开发的时候，经常这样做。
+            在实际开发也是有很多用URL传值的需求，比如我们在新闻列表中有很多新闻标题整齐的排列，我们需要点击每个新闻标题打开不同的新闻内容，
+            这时在跳转路由时跟上新闻编号就十分实用。
+        </p>
+        <hr>
+        <h4>冒号的形式传递参数</h4>
+        <p>我们可以在路由配置文件里以:冒号的形式传递参数，这就是对参数的绑定。我们在/src/router/index.js文件里配置路由。</p>
+        <div>
+            <span>{<br>
+                    path:'/params/:newsId/:newsTitle',<br>
+                    component:Params <br>
+                }
+            </span>
+        </div>
+        <p>我们需要传递参数是新闻ID（newsId）和新闻标题（newsTitle）.所以我们在路由配置文件里制定了这两个值。</p>
+        <ul>
+            <li>在src/components目录下建立我们params.vue组件，也可以说是页面。我们在页面里输出了url传递的的新闻ID和新闻标题。</li>
+            <img src="../../images/vue-router_21.png" alt="">
+            <li>在App.vue文件里加入我们的 router-view 标签。这时候我们可以直接利用url传值了。</li>
+            <div>
+                <span>{{message}}</span>
+            </div>
+        </ul>
+        <p>实现效果：</p>
+        <img src="../../images/vue-router_22.png" alt="">
+        <hr>
+        <h4>正则表达式在URL传值中的应用</h4>
+        <p>上边的例子，我们传递了新闻编号，现在需求升级了，我们希望我们传递的新闻ID只能是数字的形式，
+            这时候我们就需要在传递时有个基本的类型判断，vue是支持正则的。
+            加入正则需要在路由配置文件里（/src/router/index.js）以圆括号的形式加入。</p>
+        <div>
+            <span>path:'/params/:newsId(\\d+)/:newsTitle'</span>
+        </div>
+        <p>加入了正则，我们再传递数字之外的其他参数，params.vue组件就没有办法接收到。</p>
+
+    </div>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message: '<router-link to="/params/196/the News is wonderful, today.">Params</router-link>'
+            }
+        })
+    </script>
+
+    <style>
+
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        img{
+            padding-left: 1rem;
+            width: 40%;
+            height: 30%;
+        }
+        div{
+            padding-left: 1rem;
+        }
+        span{
+            color: powderblue;
+            line-height: 1.9rem;
+            padding: .5rem !important;
+            font-weight: 300;
+            border-radius: .3rem;
+            border: 0px !important;
+            background-color: #283646 !important;
+            border-radius: 3px;
+            line-height: 1.1rem;
+            font-size: .87rem;
+            width: 800px;
+            height: 50px;
+            display: table-cell;
+            vertical-align:middle;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+        }
+    </style>
+</body>
+</html>

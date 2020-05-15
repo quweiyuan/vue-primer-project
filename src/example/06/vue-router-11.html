@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>vue-router 编程式导航 案例</title>
+</head>
+<body>
+    <div id="app">
+        <p>前10节的导航都是用 router-link 标签或者直接操作地址栏的形式完成的，那如果在业务逻辑代码中需要跳转页面我们如何操作？
+            这就是我们要说的编程式导航，顾名思义，就是在业务逻辑代码中实现导航。
+        </p>
+        <hr>
+        <h4>this.$router.go(-1) 和 this.$router.go(1)</h4>
+        <p>这两个编程式导航的意思是后退和前进，功能跟我们浏览器上的后退和前进按钮一样，这在业务逻辑中经常用到。
+            比如条件不满足时，我们需要后退。
+        </p>
+        <p>router.go(-1)代表着后退，我们可以让我们的导航进行后退，并且我们的地址栏也是有所变化的。</p>
+        <ul>
+            <li>我们先在app.vue文件里加入一个按钮，按钮并绑定一个goback( )方法。</li>
+                <div><span>{{message}}</span></div>
+            <li>在我们的script模块中写入goback()方法，并使用this.$router.go(-1),进行后退操作。</li>
+                <div>
+                    <span>
+                        methods:{<br>
+                            goback(){<br>
+                              this.$router.go(-1);<br>
+                            }<br>
+                          }
+                    </span>
+                </div>
+        </ul>
+        <p>打开浏览器进行预览，这时我们的后退按钮就可以向以前的网页一样后退了。</p>
+        <p>router.go(1):代表着前进，用法和后退一样.</p>
+        <hr>
+        <h4>this.$router.push('/xxx ')</h4>
+        <p>这个编程式导航都作用就是跳转，比如我们判断用户名和密码正确时，需要跳转到用户中心页面或者首页，
+            都用到这个编程的方法来操作路由。 我们来设置一个按钮，点击按钮后回到站点首页。
+        </p>
+        <ul>
+            <li>先编写一个按钮，在按钮上绑定goHome( )方法。</li>
+                <div><span>{{message}}</span></div>
+            <li>在 script 模块里加入goHome方法，并用this.$router.push(‘/’)导航到首页</li>
+                 <div>
+                     <span>
+                         goHome(){<br>
+                          this.$router.push('/');<br>
+                         }
+                     </span>
+                 </div>
+        </ul>
+
+    </div>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message: '<button @click="goback">后退</button>',
+                message01: '<button @click="goHome">回到首页</button>'
+            }
+        })
+    </script>
+
+    <style>
+
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        img{
+            padding-left: 1rem;
+            width: 40%;
+            height: 30%;
+        }
+        div{
+            padding-left: 1rem;
+        }
+        span{
+            color: powderblue;
+            line-height: 1.9rem;
+            padding: .5rem !important;
+            font-weight: 300;
+            border-radius: .3rem;
+            border: 0px !important;
+            background-color: #283646 !important;
+            border-radius: 3px;
+            line-height: 1.1rem;
+            font-size: .87rem;
+            width: 800px;
+            height: 50px;
+            display: table-cell;
+            vertical-align:middle;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>vue-router mode的设置和404页面的处理 案例</title>
+</head>
+<body>
+    <div id="app">
+        <p>在学习过渡效果的时候，我们学了mode的设置，但是在路由的属性中还有一个mode。
+            这节课我们就学习一下另一个mode模式和404页面的设置。
+        </p>
+        <h4>mode的两个值</h4>
+        <ul>
+            <li>histroy: 当你使用 history 模式时，URL 就像正常的 url，例如 http://jsapng.com/lms/，也好看！</li>
+            <li>hash: 默认’hash’值，但是hash看起来就像无意义的字符排列，不太好看也不符合我们一般的网址浏览习惯。</li>
+        </ul>
+
+        <hr>
+        <h4>404页面的设置</h4>
+        <p>用户会经常输错页面，当用户输错页面时，我们希望给他一个友好的提示，为此美工都会设计一个漂亮的页面，
+            这个页面就是我们常说的404页面。vue-router也为我们提供了这样的机制.
+        </p>
+        <ul>
+            <li>设置我们的路由配置文件（/src/router/index.js）：</li>
+            <div>
+                <span>
+                    {<br>
+                       path:'*',<br>
+                       component:Error <br>
+                    }
+                </span>
+                这里的path:’*’就是找不到页面时的配置，component是我们新建的一个Error.vue的文件。
+            </div>
+            <li>新建404页面：在/src/components/文件夹下新建一个Error.vue的文件。简单输入一些有关错误页面的内容。</li>
+            <img src="../../images/vue-router_25.png" alt="">
+            <li>我们在用 router-link 随便写一个标签的路径。</li>
+            <div><span>{{message}}</span></div>
+        </ul>
+        <p>点击测试404，预览一下我们现在的页面，就已经实现404页面的效果。</p>
+        <div><img src="../../images/vue-router_26.png" alt=""></div>
+
+    </div>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message: '<router-link to="/404">测试404</router-link>'
+            }
+        })
+    </script>
+
+    <style>
+
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        img{
+            padding-left: 1rem;
+            width: 40%;
+            height: 30%;
+        }
+        div{
+            padding-left: 1rem;
+        }
+        span{
+            color: powderblue;
+            line-height: 1.9rem;
+            padding: .5rem !important;
+            font-weight: 300;
+            border-radius: .3rem;
+            border: 0px !important;
+            background-color: #283646 !important;
+            border-radius: 3px;
+            line-height: 1.1rem;
+            font-size: .87rem;
+            width: 800px;
+            height: 50px;
+            display: table-cell;
+            vertical-align:middle;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+        }
+    </style>
+</body>
+</html>
