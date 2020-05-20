@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>vuex module模块组 案例</title>
+</head>
+<body>
+    <div id="app">
+        <p>随着项目的复杂性增加，我们共享的状态越来越多，这时候我们就需要把我们状态的各种操作进行一个分组，分组后再进行按组编写。
+            那今天我们就学习一下module：状态管理器的模块组操作。</p>
+        <hr>
+        <h4>声明模块组</h4>
+        <p>在vuex/store.js中声明模块组，我们还是用我们的const常量的方法声明模块组。代码如下：</p>
+        <div>
+            <span>
+                const moduleA={<br>
+                    state,mutations,getters,actions <br>
+                }
+            </span>
+        </div>
+        <p>声明好后，我们需要修改原来 Vuex.Store里的值：</p>
+        <div>
+            <span>
+                export default new Vuex.Store({<br>
+                 modules:{a: moduleA} <br>
+                })
+            </span>
+        </div>
+
+        <hr>
+        <h4>在模板中使用</h4>
+        <p>现在我们要在模板中使用count状态，要用插值的形式写入。</p>
+            <div><span>{{message}}</span></div>
+        <p>如果想用简单的方法引入，还是要在我们的计算属性中rutrun我们的状态。写法如下：</p>
+         <div>
+             <span>
+                computed: {<br>
+                    count () {<br>
+                      return this.$store.state.a.count<br>
+                    }<br>
+                  }
+             </span>
+         </div>
+    </div>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message: '<h3>{{$store.state.a.count}}</h3>',
+                message01: ''
+            }
+        })
+    </script>
+
+    <style>
+
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        img{
+            padding-left: 1rem;
+            width: 40%;
+            height: 30%;
+        }
+        div{
+            padding-left: 1rem;
+        }
+        span{
+            color: powderblue;
+            line-height: 1.9rem;
+            padding: .5rem !important;
+            font-weight: 300;
+            border-radius: .3rem;
+            border: 0px !important;
+            background-color: #283646 !important;
+            border-radius: 3px;
+            line-height: 1.1rem;
+            font-size: .87rem;
+            width: 800px;
+            height: 50px;
+            display: table-cell;
+            vertical-align:middle;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+        }
+    </style>
+</body>
+</html>

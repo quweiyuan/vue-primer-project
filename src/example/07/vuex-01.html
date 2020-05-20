@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>vuex 入门 案例</title>
+</head>
+<body>
+    <div id="app">
+        <h4>引入vuex</h4>
+
+            <ul>
+                <li>1. 利用npm包管理工具，进行安装 vuex。在控制命令行中输入下边的命令就可以了。</li>
+                <div><span>npm install vuex --save</span></div>
+                <div>需要注意的是这里一定要加上 –save，因为你这个包我们在生产环境中是要使用的。</div>
+                <li>2. 新建一个vuex文件夹（这个不是必须的），并在文件夹下新建store.js文件，文件中引入我们的vue和vuex。</li>
+                <div>
+                    <span>
+                    import Vue from 'vue';<br>
+                    import Vuex from 'vuex';
+                    </span>
+                </div>
+                <li>3. 使用我们vuex，引入之后用Vue.use进行引用。</li>
+                <div>
+                    <span>Vue.use(Vuex);</span>
+                </div>
+                <p>通过这三步的操作，vuex就算引用成功了，接下来我们就可以尽情的玩耍了。</p>
+            </ul>
+            <hr>
+            <h4>接下来我们来玩一个小案例</h4>
+            <p>我们这个小案例先声明一个state的count状态，在页面中使用显示这个count，然后可以利用按钮进行加减。</p>
+            <ul>
+                <li>1. 现在我们store.js文件里增加一个常量对象。store.js文件就是我们在引入vuex时的那个文件。</li>
+                <div>
+                    <span>
+                        const state={<br>
+                            count:1 <br>
+                        }
+                    </span>
+                </div>
+                <li>2. 用export default 封装代码，让外部可以引用。</li>
+                <div>
+                    <span>
+                        export default new Vuex.Store({ <br>
+                            state <br>
+                        <br>
+                        })
+                    </span>
+                </div>
+                <li>3. 新建一个vue的模板，位置在components文件夹下，名字叫count.vue。在模板中我们引入我们刚建的store.js文件，
+                    并在模板中用$store.state.count输出count 的值。</li>
+                <img src="../../images/vuex_01.png" alt="">
+                <li>4. 在store.js文件中加入两个改变state的方法。</li>
+                    <div>
+                        <span>
+                            const mutations = {<br>
+                                  add: (state) => {<br>
+                                    state.count++<br>
+                                  },<br>
+                                  reduce: (state) => {<br>
+                                    state.count--<br>
+                                  }<br>
+                            }<br>
+                            export default new Vuex.Store({<br>
+                              state,<br>
+                              mutations<br>
+                            })
+                        </span>
+                    </div>
+                <div>这里的mutations是固定的写法，意思是改变的，我们后面会学习mutations，所以你先不用着急，只要知道我们改变state的数值的方法，
+                    必须写在mutations里就可以了。</div>
+                <li>5. 在count.vue模板中加入两个按钮，并调用mutations中的方法。</li>
+                <div>
+                    <span>
+                        {{message}}<br>
+                        {{message01}}
+                    </span>
+                </div>
+                <p>下面我们在app.vue 文件中加一个导航来预览，就可以看到效果了。效果图如下：</p>
+                <img src="../../images/vuex_02.png" alt="">
+            </ul>
+
+
+    </div>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message: '<button @click="$store.commit(\'add\')">+</button>',
+                message01: '<button @click="$store.commit(\'reduce\')">-</button>'
+            }
+        })
+    </script>
+
+    <style>
+
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        img{
+            padding-left: 1rem;
+            width: 40%;
+            height: 30%;
+        }
+        div{
+            padding-left: 1rem;
+        }
+        span{
+            color: powderblue;
+            line-height: 1.9rem;
+            padding: .5rem !important;
+            font-weight: 300;
+            border-radius: .3rem;
+            border: 0px !important;
+            background-color: #283646 !important;
+            border-radius: 3px;
+            line-height: 1.1rem;
+            font-size: .87rem;
+            width: 800px;
+            height: 50px;
+            display: table-cell;
+            vertical-align:middle;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+        }
+    </style>
+</body>
+</html>

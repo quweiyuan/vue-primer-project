@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>vuex state访问状态对象</title>
+</head>
+<body>
+    <div id="app">
+        <p>在第1节我们已经写了一个 const state ，这个就是我们说的访问状态对象，它就是我们SPA（单页应用程序）中的共享值。
+            今天我们主要学习状态对象赋值给内部对象，也就是把stroe.js中的值，赋值给我们模板里data中的值。
+            我们有三种赋值方式，我们一一来学习一下。</p>
+        <hr>
+        <h4>通过computed的计算属性直接赋值</h4>
+        <p>computed属性可以在输出前，对data中的值进行改变，我们就利用这种特性把store.js中的state值赋值给我们模板中的data值。</p>
+        <div>
+            <span>
+                computed: {<br>
+                    count: () => {<br>
+                      return this.$store.state.count<br>
+                    }<br>
+              }<br>
+            </span>
+        </div>
+        <p>这里需要注意的是return this.$store.state.count这一句，一定要写this，要不你会找不到$store的。
+            这种写法很好理解，但是写起来是比较麻烦的，下面我们来看看第二种写法。</p>
+
+        <hr>
+        <h4>通过mapState的对象来赋值</h4>
+        <p>我们首先要用import引入mapState。</p>
+        <div>
+            <span>import {mapState} from 'vuex';</span>
+        </div>
+        <p>然后还在computed计算属性里写如下代码：</p>
+        <div>
+            <span>
+                computed:mapState({<br>
+                        count: state => state.count<br>
+                 })
+            </span>
+        </div>
+        <hr>
+        <h4>通过mapState的数组来赋值</h4>
+        <div>
+            <span>
+                computed:mapState(["count"])
+            </span>
+        </div>
+        <p>这个算是最简单的写法了，在实际项目开发当中也经常这样使用。</p>
+
+    </div>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message: '',
+                message01: ''
+            }
+        })
+    </script>
+
+    <style>
+
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        img{
+            padding-left: 1rem;
+            width: 40%;
+            height: 30%;
+        }
+        div{
+            padding-left: 1rem;
+        }
+        span{
+            color: powderblue;
+            line-height: 1.9rem;
+            padding: .5rem !important;
+            font-weight: 300;
+            border-radius: .3rem;
+            border: 0px !important;
+            background-color: #283646 !important;
+            border-radius: 3px;
+            line-height: 1.1rem;
+            font-size: .87rem;
+            width: 800px;
+            height: 50px;
+            display: table-cell;
+            vertical-align:middle;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+        }
+    </style>
+</body>
+</html>

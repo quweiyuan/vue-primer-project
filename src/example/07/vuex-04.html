@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>vuex getters计算过滤操作 案例</title>
+</head>
+<body>
+    <div id="app">
+        <p>getters从表面是获得的意思，可以把他看作在获取数据之前进行的一种再编辑,相当于对数据的一个过滤和加工。
+            你可以把它看作store.js的计算属性。
+        </p>
+        <hr>
+        <h4>getters基本用法</h4>
+        <p>比如我们现在要对store.js文件中的count进行一个计算属性的操作，就是在它输出前，给它加上100.
+            我们首先要在store.js里用const声明我们的getters属性。</p>
+        <div>
+            <span>
+                const getters = {<br>
+                  count: (state) => {<br>
+                    state.count += 100<br>
+                  }<br>
+                }
+            </span>
+        </div>
+        <p>写好了gettters之后，我们还需要在Vuex.Store()里引入，由于之前我们已经引入了state盒mutations，
+            所以引入里有三个引入属性。代码如下：</p>
+        <div>
+            <span>
+                export default new Vuex.Store({<br>
+                    state,mutations,getters<br>
+                })
+            </span>
+        </div>
+
+        <p>在store.js里的配置算是完成了，我们需要到模板页对computed进行配置。在vue 的构造器里边只能有一个computed属性，
+            如果你写多个，只有最后一个computed属性可用，所以要对上节写的computed属性进行一个改造。改造时我们使用ES6中的展开运算符”…”。
+        </p>
+        <div>
+            <span>
+                computed:{<br>
+                    ...mapState(["count"]),<br>
+                    count () {<br>
+                        return this.$store.getters.count;<br>
+                    }<br>
+                }
+            </span>
+        </div>
+        <p>需要注意的是，你写了这个配置后，在每次count 的值发生变化的时候，都会进行加100的操作</p>
+        <hr>
+        <h4>用mapGetters简化模板写法</h4>
+        <p>我们都知道state和mutations都有map的引用方法把我们模板中的编码进行简化，我们的getters也是有的，我们来看一下代码。</p>
+        <ul>
+            <li>首先用import引入我们的mapGetters</li>
+                <span>import { mapState,mapMutations,mapGetters } from 'vuex';</span>
+            <li>在computed属性中加入mapGetters</li>
+                <span>...mapGetters(['count']),</span>
+        </ul>
+
+
+
+    </div>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message: '<button @click="goback">后退</button>',
+                message01: '<button @click="goHome">回到首页</button>'
+            }
+        })
+    </script>
+
+    <style>
+
+        h4{
+            border-left: 4px solid rgb(156, 203, 250);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        p{
+            width: 65%;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding: 1.3rem;
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.9rem;
+        }
+
+        body{
+            background-color: #f4f5f5;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+            height: auto;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.65);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-variant: tabular-nums;
+            line-height: 1.5;
+            background-color: #fff;
+            -webkit-font-feature-settings: 'tnum';
+            font-feature-settings: 'tnum';
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -ms-overflow-style: scrollbar;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        img{
+            padding-left: 1rem;
+            width: 40%;
+            height: 30%;
+        }
+        div{
+            padding-left: 1rem;
+        }
+        span{
+            color: powderblue;
+            line-height: 1.9rem;
+            padding: .5rem !important;
+            font-weight: 300;
+            border-radius: .3rem;
+            border: 0px !important;
+            background-color: #283646 !important;
+            border-radius: 3px;
+            line-height: 1.1rem;
+            font-size: .87rem;
+            width: 800px;
+            height: 50px;
+            display: table-cell;
+            vertical-align:middle;
+            font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+        }
+    </style>
+</body>
+</html>
